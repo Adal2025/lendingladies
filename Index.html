@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <section class="intro-section">
+    <div class="intro-container">
+        <div class="column-left">
+            <img src="img/LOGO LENDING LADIES.png" alt="Lending Ladies Logo" class="logo">
+            <div class="tagline-box">
+                <p>
+                     <i>
+            <span class="black-text">The</span> <span class="pink-text">#1 Organization</span><br>
+            <span class="black-text">for Women in the</span><br>
+            <span class="pink-text">Lending Industry</span>
+        </i>
+                </p>
+            </div>
+        </div>
+
+        <div class="column-right">
+            <img src="img/IMA-FOR-BG-COLLAGE.png" alt="Fotografía de la organización" class="photo-image">
+        </div>
+    </div>
+</section>
+
+<section class="card-feature-section">
+    <div class="card-grid">
+        <div class="card card-modal-open" id="card-about-us">
+            <img src="img/Ima-box-1.png" alt="About Us" class="card-image">
+            <div class="card-text">
+                <h2 class="black-text">About Us</h2>
+            </div>
+        </div>
+
+        <div class="card card-redirect" id="card-past-events">
+            <img src="img/Ima-box-2.png" alt="Past Events" class="card-image">
+            <div class="card-text">
+                <h2>Past Events</h2>
+            </div>
+        </div>
+
+        <div class="card card-modal-open" id="card-join-list">
+            <img src="img/Ima-box-3.png" alt="Join Email List" class="card-image">
+            <div class="card-text">
+                <h2>Join Our Email List</h2>
+            </div>
+        </div>
+
+        <div class="card card-modal-open" id="card-sponsor">
+            <img src="img/Ima-box-4.png" alt="Become a Sponsor" class="card-image">
+            <div class="card-text">
+                <h2>Become a Sponsor</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rsvp-section">
+    <h2 class="rsvp-header">RSVP for our next event!</h2>
+    
+    <div class="image-container">
+        <img src="img/bg-escenario-pink-alfombra.png" alt="Imagen del Próximo Evento" class="event-image">
+    </div>
+</section>
+
+<section class="sponsors-section">
+    <h2 class="sponsors-header">Thank you to our sponsors</h2>
+    <h3 class="sponsors-subheader">Presenting Sponsors & Venue Host</h3>
+
+    <div class="sponsors-carousel-container">
+        
+        <div class="sponsor-slider" id="slider-1">
+            <div class="slider-images">
+                <img src="img/Logos-Sponsors---Gulf-Coast.jpg" alt="Sponsor Logo 1" class="slider-img">
+                <img src="img/Text-Logos-1.png" alt="Sponsor Logo 2" class="slider-img">
+                <img src="img/Logos-Sponsors---Fondo.jpg" alt="Sponsor Logo 3" class="slider-img">
+            </div>
+            <button class="nav-btn prev" data-slider="1">&lt;</button>
+            <button class="nav-btn next" data-slider="1">&gt;</button>
+        </div>
+
+        <div class="sponsor-slider" id="slider-2">
+            <div class="slider-images">
+                <img src="img/Logos-Sponsors---The-Zig.jpg" alt="Sponsor Logo 4" class="slider-img">
+                <img src="img/Text-Logos-2.png" alt="Sponsor Logo 5" class="slider-img">
+                <img src="img/Logos-Sponsors---Fondo.jpg" alt="Sponsor Logo 6" class="slider-img">
+            </div>
+            <button class="nav-btn prev" data-slider="2">&lt;</button>
+            <button class="nav-btn next" data-slider="2">&gt;</button>
+        </div>
+
+        <div class="sponsor-slider" id="slider-3">
+            <div class="slider-images">
+                <img src="img/invinciblespaces_logo (1).png" alt="Sponsor Logo 7" class="slider-img">
+                <img src="img/Text-Logos-3.png" alt="Sponsor Logo 8" class="slider-img">
+                <img src="img/Text-Logos-3.png" alt="Sponsor Logo 9" class="slider-img">
+            </div>
+            <button class="nav-btn prev" data-slider="3">&lt;</button>
+            <button class="nav-btn next" data-slider="3">&gt;</button>
+        </div>
+    </div>
+</section>
+
+<div id="simpleModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 id="modal-header">Título del Encabezado</h3>
+        <p id="modal-body">Este es el cuadro de texto del contenido de la ventana emergente.</p>
+    </div>
+</div>
+
+<div id="formModal" class="modal">
+    <div class="modal-content form-modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Join Our Email List</h3>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tel">Telephone:</label>
+            <input type="tel" id="tel" name="telephone">
+
+            <button type="submit" class="btn-register">Register</button>
+        </form>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

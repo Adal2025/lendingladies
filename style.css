@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.intro-section {
+    padding: 10px 0px;
+    background-color: #ffffff;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    max-width: 100%;
+    margin: 0 auto; /* Centra el contenedor principal */
+}
+
+.column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1; /* Permite que la columna ocupe el espacio disponible */
+}
+
+.logo {
+    max-width: 45%;
+    height: auto;
+}
+
+.tagline-box {
+    margin-top: 50px;
+}
+
+.tagline-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 0;
+    /* Aplica el estilo cursiva al párrafo completo */
+    font-style: italic; 
+}
+
+.black-text {
+    color: black;
+}
+
+.pink-text {
+    color: #E92D93;
+}
+
+.column-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Permite que la columna ocupe el espacio disponible */
+}
+
+.photo-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 5px; 
+}
+
+@media (max-width: 768px) {
+    .intro-container {
+        flex-direction: column;
+    }
+}
+
+.card-feature-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.card {
+    border: 2px solid #E92D93;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.card-text {
+    padding: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100px;
+}
+
+.card-text h2 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #333; /* Color predeterminado */
+}
+
+/* Estilo específico para la caja 1 */
+#card-about-us .card-text .black-text {
+    color: black;
+}
+
+/* ESTILOS DE LA VENTANA EMERGENTE (MODAL) */
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscurecido */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% desde arriba y centrado horizontalmente */
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px; /* Ancho máximo para la ventana */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.close-btn {
+    color: #000000;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos específicos del Formulario */
+.form-modal-content label,
+.form-modal-content input,
+.form-modal-content button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-modal-content input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-register {
+    background-color: #E92D93; /* Ejemplo de color rojo/rosa */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
+/* Responsive: Apilar en pantallas pequeñas */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+    }
+}
+
+/* Estilos para la sección de RSVP */
+.rsvp-section {
+    padding: 10px 20px;
+    text-align: center; /* Centra el encabezado */
+    background-color: #ffffff;
+}
+
+/* Estilo del Encabezado */
+.rsvp-header {
+    font-size: 5rem;
+    /* Color pink */
+    color: #E92D93; 
+    /* Bold y Italic */
+    font-weight: bold; 
+    font-style: italic; 
+    margin-bottom: 40px;
+    font-family: 'Cormorant Garamond', serif; /* Usamos la fuente que ya definiste */
+}
+
+/* Contenedor de la imagen para controlar su ancho y centrado */
+.image-container {
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    width: 100%;
+}
+
+/* Estilo de la imagen */
+.event-image {
+    /* La imagen ocupará un 80% del ancho de la pantalla, pero no más de 1200px para pantallas muy grandes */
+    width: 80vw; 
+    max-width: 1200px; /* Límite para que no sea excesivamente grande */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .rsvp-header {
+        font-size: 2rem;
+    }
+    .event-image {
+        /* En móvil puede ocupar casi todo el ancho para una mejor visualización */
+        width: 95vw; 
+    }
+}
+
+/* Estilos para la sección de Patrocinadores */
+.sponsors-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+/* Encabezados centrados y con colores */
+.sponsors-header {
+    color: #E92D93; /* Pink */
+    font-size: 5rem;
+    margin-bottom: 5px;
+}
+
+.sponsors-subheader {
+    color: black;
+    font-size: 3rem;
+    margin-bottom: 80px;
+}
+
+/* Contenedor Flexbox para los 3 sliders en línea */
+.sponsors-carousel-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Estilo base de cada slider individual */
+.sponsor-slider {
+    width: 350px; /* Ancho fijo para cada caja */
+    height: 350px;
+    position: relative;
+    overflow: hidden; /* CRUCIAL: Oculta las imágenes que están fuera de la vista */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor interno de las imágenes */
+.slider-images {
+    display: flex;
+    width: 300%; /* El ancho es 3 veces el ancho del contenedor para que las 3 imágenes quepan en fila */
+    height: 100%;
+    transition: transform 0.3s ease-in-out; /* Animación de desplazamiento */
+}
+
+.slider-img {
+    width: calc(100% / 3); /* Cada imagen ocupa un tercio del ancho total (100% de 300%) */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botones de navegación (flechas) */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+}
+
+.nav-btn.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.nav-btn.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Media Query: Apilar en dispositivos pequeños */
+@media (max-width: 900px) {
+    .sponsors-carousel-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sponsor-slider {
+        margin-bottom: 20px;
+    }
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+}
+
