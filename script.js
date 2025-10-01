@@ -110,15 +110,21 @@ document.addEventListener('DOMContentLoaded', function() {
         formModal.style.display = 'block';
     });
 
-// Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
+    // Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
 cardSponsor.addEventListener('click', function() {
-    // Definimos el nuevo contenido HTML con los textos y estilos solicitados.
+    // Definimos el nuevo contenido HTML con el texto separado en dos párrafos.
     const sponsorContentHTML = `
         <span class="close-btn">&times;</span>
         <h3 id="modal-header" style="color: #E92D93; text-align: center;">Become a Sponsor</h3>
-        <p id="modal-body" style="color: black; text-align: justify;">
-            We offer a range of sponsorship levels from $250 to $500, designed to accommodate individuals, small businesses, and organizations that want to make a meaningful impact. Each level comes with recognition and benefits tailored to your support, including brand exposure, featured mentions, and opportunities to connect directly with our growing community.
+        
+        <p style="color: black; text-align: justify;">
+            We offer a range of sponsorship levels from $250 to $500, designed to accommodate individuals, small businesses, and organizations that want to make a meaningful impact.
         </p>
+        
+        <p style="color: black; text-align: justify;">
+            Each level comes with recognition and benefits tailored to your support, including brand exposure, featured mentions, and opportunities to connect directly with our growing community.
+        </p>
+
         <p style="text-align: center; margin-top: 20px;">
             Ready to partner with us? Email us at 
             <a href="mailto:lendingladiestx@gmail.com?subject=Sponsorship Inquiry for Lending Ladies TX" style="color: #E92D93; font-weight: bold;">
