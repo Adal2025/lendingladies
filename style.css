@@ -383,32 +383,49 @@ body {
     background-color: #E92D93;
 }
 
-/* ESTILOS PARA LA TERCERA DIAPOSITIVA DE CONTACTO */
+/* ESTILOS PARA LA TERCERA DIAPOSITIVA DE CONTACTO (ACTUALIZADO) */
 .contact-slide {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: center; /* Centra todo horizontalmente */
+    
+    /* Ajustamos el espaciado para la nueva distribución */
+    justify-content: flex-start; /* Alinea los elementos hacia arriba */
+    padding: 25px 20px; /* Aumentamos el padding superior */
+
     box-sizing: border-box;
-    background-color: #fafafa; /* Un fondo rosa muy claro */
+    background-color: #fdf6fa;
+    text-align: center; /* Asegura que el texto esté centrado */
 }
 
 .contact-slide h4 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: #333;
-    margin-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 15px; /* Espacio entre título y foto */
+}
+
+/* --- NUEVA CLASE PARA LA FOTO CIRCULAR --- */
+.contact-photo {
+    width: 100px; /* Tamaño de la foto */
+    height: 100px;
+    border-radius: 50%; /* Esto la hace circular */
+    object-fit: cover; /* Asegura que la imagen cubra el círculo sin deformarse */
+    border: 3px solid #000000; /* Borde rosa opcional */
+    margin-bottom: 15px; /* Espacio entre foto y texto */
 }
 
 .contact-slide p {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #555;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 20px; /* Espacio entre texto y botones */
+    flex-grow: 1; /* Empuja los botones hacia abajo */
 }
 
 .contact-buttons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .btn-slider {
@@ -735,11 +752,12 @@ body {
 
 .social-tagline {
     color: white;
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: bold;
     font-family: 'Cormorant Garamond', serif;
     margin: 0; /* Quitamos márgenes por defecto */
     margin-top: 10px;
+    text-align: center;
 }
 
 /* ---- AJUSTES PARA MÓVILES ---- */
