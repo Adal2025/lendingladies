@@ -253,7 +253,7 @@ body {
 }
 
 /* ======================================================= */
-/* ============ 3. ESTILOS DE LA SECCIÓN RSVP ============ */
+/* ============ 3. ESTILOS DE LA SECCIÓN RSVP (ACTUALIZADO) ============ */
 /* ======================================================= */
 
 .rsvp-section {
@@ -271,18 +271,61 @@ body {
     font-family: 'Cormorant Garamond', serif;
 }
 
-.image-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+/* El nuevo contenedor negro */
+.rsvp-image-wrapper {
+    background-color: #000000; /* Fondo negro */
+    border-radius: 15px;
+    padding: 20px; /* Espacio entre el borde negro y la foto */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.event-image {
-    width: 80vw; 
-    max-width: 1200px;
+/* La imagen ahora es clickable */
+.event-image-clickable {
+    width: 60%; 
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Cambia el cursor para indicar que se puede hacer clic */
+    transition: transform 0.3s ease;
+}
+
+.event-image-clickable:hover {
+    transform: scale(1.02); /* Efecto sutil al pasar el mouse */
+}
+
+
+/* --- ESTILOS PARA EL LIGHTBOX DE RSVP --- */
+.rsvp-lightbox-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.rsvp-lightbox-modal.active {
+    display: flex; /* Se muestra al hacer clic */
+}
+
+.rsvp-lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+}
+
+/* El botón de cierre es el mismo que ya tenías, pero nos aseguramos que funcione aquí */
+.rsvp-lightbox-modal .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* ======================================================= */
@@ -498,6 +541,12 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 40px;
+    }
+
+    /* Esto fuerza a cada slider a centrarse por sí mismo */
+    .sponsor-slider-wrapper {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .sponsors-header {

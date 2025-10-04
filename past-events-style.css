@@ -206,3 +206,30 @@ body {
 .lightbox-nav:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+/* ============================================== */
+/* ====== ESTILO PARA FLECHA DE REGRESO ======= */
+/* ============================================== */
+.back-to-home {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* La hace circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s, background-color 0.2s;
+    z-index: 100; /* Se asegura que esté por encima de otros elementos */
+}
+
+.back-to-home:hover {
+    transform: scale(1.1); /* Agranda un poco al pasar el mouse */
+    background-color: #ffffff;
+}
