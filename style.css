@@ -537,18 +537,20 @@ body {
 
 /* Media Query para SLIDERS (max-width: 900px) */
 @media (max-width: 900px) {
+    
+    /* El contenedor principal de los 3 sliders */
     .sponsors-carousel-container {
+        display: flex; /* Mantenemos flex para que el 'gap' funcione */
         flex-direction: column;
-        gap: 40px;
-        /* Quitamos align-items: center para que no haya reglas conflictivas */
+        gap: 50px; /* Espacio entre cada slider */
     }
 
-    /* Esto fuerza a cada slider a centrarse por sí mismo */
+    /* La caja que envuelve CADA slider y su navegación */
     .sponsor-slider-wrapper {
-        /* Clave 1: Le damos un ancho definido y evitamos que ocupe el 100% */
+        /* Clave 1: Le damos un ancho fijo para que no ocupe toda la pantalla */
         width: 350px; 
         
-        /* Clave 2: Forzamos el centrado con márgenes automáticos */
+        /* Clave 2: La forma más efectiva de centrarlo */
         margin-left: auto;
         margin-right: auto;
     }
@@ -563,14 +565,9 @@ body {
         margin-top: 10px;
         margin-bottom: 50px;
     }
-
-    /* Quitamos el margen de abajo de aquí para evitar doble margen */
-    .sponsor-slider {
-        /* margin-bottom: 20px; */ /* Esta línea ya no es necesaria */
-    }
-
+    
     .slider-nav {
-        margin-top: 15px; /* Ajustamos un poco el margen */
+        margin-top: 15px;
     }
 }
 
