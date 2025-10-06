@@ -115,29 +115,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // --- LÓGICA DE SLIDERS ---
+// --- LÓGICA DE SLIDERS ---
     let slideIndex = [0, 0, 0];
     const numSlides = 3;
 
     function updateDots(sliderId) {
         const dotsContainer = document.querySelector(`.slider-nav[data-slider="${sliderId}"] .slider-dots`);
+        if (!dotsContainer) return;
         const dots = dotsContainer.querySelectorAll('.dot');
         const currentIndex = slideIndex[sliderId - 1];
-        if (!dotsContainer) return; // Si no hay dots, no hagas nada
         dots.forEach((dot, index) => {
-            if (index === currentIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
+            dot.classList.toggle('active', index === currentIndex);
         });
     }
 
     function goToSlide(sliderId, slideNumber) {
-        slideIndex[sliderId - 1] = slideNumber;
         const sliderImages = document.querySelector(`#slider-${sliderId} .slider-images`);
-        if (!sliderImages) return; // Si no hay slider, no hagas nada
-        const offset = -slideIndex[sliderId - 1] * (100 / numSlides);
+        if (!sliderImages) return;
+        slideIndex[sliderId - 1] = slideNumber;
+        const offset = -slideNumber * (100 / numSlides);
         sliderImages.style.transform = `translateX(${offset}%)`;
         updateDots(sliderId);
     }
@@ -146,12 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const sliderId = parseInt(this.parentElement.dataset.slider);
             const direction = this.classList.contains('next') ? 1 : -1;
-            let newIndex = slideIndex[sliderId - 1] + direction;
-            if (newIndex >= numSlides) {
-                newIndex = 0;
-            } else if (newIndex < 0) {
-                newIndex = numSlides - 1;
-            }
+            let newIndex = (slideIndex[sliderId - 1] + direction + numSlides) % numSlides;
             goToSlide(sliderId, newIndex);
         });
     });
@@ -164,8 +155,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Inicializar los puntos al cargar la página
     for (let i = 1; i <= 3; i++) {
-        updateDots(i);
+        if(document.querySelector(`.slider-nav[data-slider="${i}"]`)){
+             updateDots(i);
+        }
     }
 
     // --- LÓGICA PARA EL LIGHTBOX DE LA SECCIÓN RSVP ---
