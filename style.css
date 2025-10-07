@@ -78,6 +78,15 @@ body {
 /* ====== 2. CARD FEATURE SECTION ====== */
 /* ============================================== */
 /* Base (Móvil) */
+
+.card-feature-section {
+    background-color: #ffffff; /* Este estilo ya lo tenés */
+
+    /* --- AGREGÁ ESTAS DOS LÍNEAS --- */
+    position: relative;
+    z-index: 10;
+}
+
 .card-grid {
     display: grid;
     grid-template-columns: 1fr;
