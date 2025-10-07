@@ -86,9 +86,9 @@
                     <img src="img/Logos-Sponsors---Gulf-Coast.jpg" alt="Sponsor Logo 1" class="slider-img">
                     <img src="img/Text-Logos-1.png" alt="Sponsor Logo 2" class="slider-img">
                     <div class="slider-img contact-slide">
-                        <h4>Gulf Coast</h4>
-                        <img src="ruta/a/foto-austin.jpg" alt="Foto de Austin Ward" class="contact-photo">
-                        <p>Austin Ward, Vice President<br>Gulf Coast Business Credit</p>
+                        <h4>Gulf Coast <br>Business Credit</h4>
+                        <img src="img/Profile Pic - Austin Ward.jpg" alt="Foto de Austin Ward" class="contact-photo">
+                        <p>Get in touch with our sponsor:<br>Austin Ward, Vice President</p>
                         <div class="contact-buttons">
                             <a href="mailto:austinward@gulfbank.com" class="btn-slider">Contact</a>
                             <a href="https://gulfcoastbc.com/" target="_blank" class="btn-slider">Visit Website</a>
@@ -114,8 +114,8 @@
                     <img src="img/Text-Logos-2.png" alt="Sponsor Logo 5" class="slider-img">
                     <div class="slider-img contact-slide">
                         <h4>The Zig</h4>
-                        <img src="ruta/a/foto-luis.jpg" alt="Foto de Luis Cruz" class="contact-photo">
-                        <p>Get in touch with our sponsor:<br>Luis Cruz, President <a href="mailto:Luis@thezig.io" style="color: #E92D93; font-weight: bold;">Luis@thezig.io</a></p>
+                        <img src="img/Profile Pic - Luis Cruz.png" alt="Foto de Luis Cruz" class="contact-photo">
+                        <p>Get in touch with our sponsor:<br>Luis Cruz, President</p>
                         <div class="contact-buttons">
                             <a href="mailto:Luis@thezig.io" class="btn-slider">Contact</a>
                             <a href="https://www.thezig.io/" target="_blank" class="btn-slider">Visit Website</a>
@@ -140,9 +140,9 @@
                     <img src="img/invinciblespaces_logo (1).png" alt="Sponsor Logo 7" class="slider-img">
                     <img src="img/Text-Logos-3.png" alt="Sponsor Logo 8" class="slider-img">
                     <div class="slider-img contact-slide">
-                        <h4>Invincible Spaces</h4>
-                        <img src="ruta/a/foto-jesse.jpg" alt="Foto de Jesse Martinez" class="contact-photo">
-                        <p>Jesse Martinez, Founder of invincible</p>
+                        <h4>invincible Spaces</h4>
+                        <img src="img/Profile Pic - Jesse Martinez.jpg" alt="Foto de Jesse Martinez" class="contact-photo">
+                        <p>Get in touch with our sponsor:<br>Jesse Martinez, Founder</p>
                         <div class="contact-buttons">
                             <a href="mailto:j@invinciblespaces.com" class="btn-slider">Contact</a>
                             <a href="https://www.instagram.com/invincible_spaces" target="_blank" class="btn-slider">Visit Website</a>
@@ -188,10 +188,10 @@
             <a href="https://bridgepointconsulting.com/"><img src="img/Logos-Sponsors---Bridgepoint.jpg" alt="Bridgepoint Logo"></a>
         </div>
         <div class="sponsor-logo-box">
-            <a href="https://www.linkedin.com/company/texas-capital/"><img src="img/Logos-Sponsors---Texas-Capital.jpg" alt="Texas Capital Logo"></a>
+            <a href="https://www.texascapitalbank.com/"><img src="img/Logos-Sponsors---Texas-Capital.jpg" alt="Texas Capital Logo"></a>
         </div>
         <div class="sponsor-logo-box">
-            <a href="#"><img src="img/Logos-Sponsors---Dealflow-Houston--Network.jpg" alt="Dealflow Houston Logo"></a>
+            <img src="img/Logos-Sponsors---Dealflow-Houston--Network.jpg" alt="Dealflow Houston Logo">
         </div>
 
     </div>
@@ -350,29 +350,33 @@
 
 </section>
 
-<div id="simpleModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h3 id="modal-header">Título Aquí</h3>
-        <p id="modal-body">Contenido Aquí</p>
-    </div>
-</div>
-
 <div id="formModal" class="modal">
     <div class="modal-content form-modal-content">
         <span class="close-btn">&times;</span>
-        <h3>Join Our Email List</h3>
+        <h2 class="form-main-title">Join Our Email List</h2>
+        
         <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="firstname" placeholder="Enter your first name" required>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lastname" placeholder="Enter your last name" required>
+            </div>
 
-            <label for="tel">Telephone:</label>
-            <input type="tel" id="tel" name="telephone">
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
 
-            <button type="submit" class="btn-register">Register</button>
+            <div class="form-group">
+                <label for="tel">Telephone: (Optional)</label>
+                <input type="tel" id="tel" name="telephone" placeholder="Enter your phone number">
+            </div>
+
+            <button type="submit" class="btn-subscribe">Subscribe</button>
         </form>
     </div>
 </div>

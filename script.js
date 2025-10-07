@@ -41,34 +41,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // --- LÓGICA DE CLIC EN LAS TARJETAS ---
-    const aboutUsContentHTML = `
-        <div class="about-us-content">
-            <span class="close-btn">&times;</span>
-            <h2 class="main-title-pink">About Us!</h2>
-            <div class="content-section">
-                <h4 class="section-title-pink">Born from Experience</h4>
-                <p class="body-text">Born from firsthand experience in the lending and banking industry, our organization was created to bridge a gap that too often goes unnoticed.</p>
-            </div>
-            <div class="content-section">
-                <h4 class="section-title-pink">A Spark of Realization</h4>
-                <p class="body-text">When our co-founder, Priscilla, sought to refer clients to professionals better suited to their needs, she realized all her trusted contacts were men. That moment sparked a powerful realization: women in lending need stronger visibility, deeper connection, and greater representation.</p>
-            </div>
-            <div class="content-section">
-                <h4 class="section-title-pink">Our Community</h4>
-                <p class="body-text">We are a community built to elevate, support, and connect women across all areas of the lending world, including banking, mortgage, fintech, and beyond.</p>
-            </div>
-            <div class="content-section">
-                <h4 class="section-title-pink">Our Goal</h4>
-                <p class="body-text">By amplifying each other's voices and opening doors to new relationships, we aim to reshape the industry's future—one woman at a time.</p>
-            </div>
-            <p class="signature-text">— Priscilla Picasso and Liz Castillo</p>
-        </div>
-    `;
+    // Contenido HTML completo para el modal "About Us"
+const aboutUsContentHTML = `
+    <span class="close-btn">&times;</span>
+    <h2 class="about-us-main-title">About Us!</h2>
+    
+    <div class="about-us-section">
+        <h4 class="about-us-subtitle">Born from Experience</h4>
+        <p class="about-us-body">Born from firsthand experience in the lending and banking industry, our organization was created to bridge a gap that too often goes unnoticed.</p>
+    </div>
+    
+    <div class="about-us-section">
+        <h4 class="about-us-subtitle">A Spark of Realization</h4>
+        <p class="about-us-body">When our co-founder, Priscilla, sought to refer clients to professionals better suited to their needs, she realized all her trusted contacts were men. That moment sparked a powerful realization: women in lending need stronger visibility, deeper connection, and greater representation.</p>
+    </div>
+    
+    <div class="about-us-section">
+        <h4 class="about-us-subtitle">Our Community</h4>
+        <p class="about-us-body">We are a community built to elevate, support, and connect women across all areas of the lending world, including banking, mortgage, fintech, and beyond.</p>
+    </div>
+    
+    <div class="about-us-section">
+        <h4 class="about-us-subtitle">Our Goal</h4>
+        <p class="about-us-body">By amplifying each other's voices and opening doors to new relationships, we aim to reshape the industry's future—one woman at a time.</p>
+    </div>
+    
+    <p class="about-us-signature">— Priscilla Picasso and Liz Castillo</p>
+`;
 
     cardAboutUs.addEventListener('click', function() {
         simpleModalContent.innerHTML = aboutUsContentHTML;
-        simpleModal.style.display = 'block';
+        simpleModal.style.display = 'flex';
 
         const newCloseBtn = simpleModalContent.querySelector('.close-btn');
         if (newCloseBtn) {
@@ -83,37 +86,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     cardJoinList.addEventListener('click', function() {
-        formModal.style.display = 'block';
+        formModal.style.display = 'flex';
     });
 
-    cardSponsor.addEventListener('click', function() {
-        const sponsorContentHTML = `
-            <span class="close-btn">&times;</span>
-            <h3 id="modal-header" style="color: #E92D93; text-align: center;">Become a Sponsor</h3>
-            <p style="color: black; text-align: justify;">
-                We offer a range of sponsorship levels from $250 to $500, designed to accommodate individuals, small businesses, and organizations that want to make a meaningful impact.
-            </p>
-            <p style="color: black; text-align: justify;">
-                Each level comes with recognition and benefits tailored to your support, including brand exposure, featured mentions, and opportunities to connect directly with our growing community.
-            </p>
-            <p style="text-align: center; margin-top: 20px;">
-                Ready to partner with us? Email us at 
-                <a href="mailto:lendingladiestx@gmail.com?subject=Sponsorship Inquiry for Lending Ladies TX" style="color: #E92D93; font-weight: bold;">
-                    lendingladiestx@gmail.com
-                </a>
-            </p>
-        `;
+    // Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
+cardSponsor.addEventListener('click', function() {
+    // Definimos el nuevo contenido HTML con clases para darle estilo
+    const sponsorContentHTML = `
+        <span class="close-btn">&times;</span>
+        <h2 class="sponsor-main-title">Become a Sponsor!</h2>
+        
+        <p class="sponsor-body">
+            We offer a range of sponsorship levels from $250 to $500, designed to accommodate individuals, small businesses, and organizations that want to make a meaningful impact.
+        </p>
+        
+        <p class="sponsor-body contact-line">
+            Ready to partner with us? Email us at 
+            <a href="mailto:lendingladiestx@gmail.com?subject=Inquiry About Sponsorship Opportunities" class="sponsor-email-link">
+                lendingladiestx@gmail.com
+            </a>
+        </p>
+    `;
 
-        simpleModalContent.innerHTML = sponsorContentHTML;
-        simpleModal.style.display = 'block';
+    // 1. Inyectamos el nuevo contenido en el modal.
+    simpleModalContent.innerHTML = sponsorContentHTML;
+    simpleModal.style.display = 'flex'; // Usamos flex para centrar
 
-        const newCloseBtn = simpleModalContent.querySelector('.close-btn');
-        if (newCloseBtn) {
-            newCloseBtn.onclick = function() {
-                closeModal(simpleModal);
-            };
-        }
-    });
+    // 2. Reasignamos el evento de cierre al nuevo botón 'X' que acabamos de crear.
+    const newCloseBtn = simpleModalContent.querySelector('.close-btn');
+    if (newCloseBtn) {
+        newCloseBtn.onclick = function() {
+            closeModal(simpleModal);
+        };
+    }
+});
 
 // --- LÓGICA DE SLIDERS ---
     let slideIndex = [0, 0, 0];

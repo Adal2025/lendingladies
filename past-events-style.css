@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/* ============================================== */
+/* ====== ESTILOS GLOBALES Y MOBILE-FIRST ====== */
+/* ============================================== */
 body {
     font-family: 'Cormorant Garamond', serif;
     background-color: #f9f9f9;
@@ -7,229 +10,173 @@ body {
     padding: 20px;
 }
 
+/* ============================================== */
+/* ====== CABECERA Y CONTENEDOR PRINCIPAL ====== */
+/* ============================================== */
+/* Base (Móvil) */
 .page-header {
     text-align: center;
     margin-bottom: 40px;
 }
-
 .page-header h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     color: #E92D93;
     font-style: italic;
 }
-
 .events-container {
-    max-width: 1400px; /* Aumentamos el ancho para el nuevo layout */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-/* LA TARJETA PRINCIPAL DEL EVENTO */
+/* Desktop y más grandes */
+@media (min-width: 992px) {
+    .page-header h1 {
+        font-size: 4rem;
+    }
+}
+
+
+/* ============================================== */
+/* ====== TARJETA DE EVENTO Y LAYOUT ====== */
+/* ============================================== */
+/* Base (Móvil) */
 .event-card {
     background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 10px B30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* <-- CORREGIDO */
     margin-bottom: 40px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
-    gap: 40px; /* Espacio entre las dos columnas principales */
+    flex-direction: column-reverse;
+    gap: 30px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
 }
 
-/* COLUMNA IZQUIERDA: DETALLES */
+/* Desktop y más grandes */
+@media (min-width: 992px) {
+    .event-card {
+        flex-direction: row;
+        padding: 40px;
+        gap: 40px;
+    }
+    .event-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+}
+
+
+/* ============================================== */
+/* ====== COLUMNA DE DETALLES (IZQUIERDA) ====== */
+/* ============================================== */
+/* Base (Móvil) */
 .event-details-column {
-    flex: 1; /* Ocupa la mitad del espacio */
     display: flex;
     flex-direction: column;
 }
-
 .detail-item {
     background-color: #fdf6fa;
     border: 1px solid #f0f0f0;
     border-left: 4px solid #E92D93;
-    padding: 15px 20px;
+    padding: 15px;
     margin-bottom: 15px;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-.detail-item strong {
-    color: #333;
+.detail-item strong { color: #333; }
+.bottom-widgets { display: flex; flex-direction: column; gap: 20px; }
+.widget { flex: 1; background: #f8f8f8; border-radius: 8px; padding: 20px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.05); }
+.photo-widget img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.testimonial-widget h4 { margin: 0 0 30px; font-size: 1.3rem; }
+.testimonial-widget blockquote { margin: 0; font-style: italic; font-size: 1.1rem; border-left: 3px solid #E92D93; padding-left: 15px; }
+.testimonial-widget cite { display: block; text-align: right; margin-top: 10px; font-weight: bold; color: #555; }
+
+/* Tablet y más grandes */
+@media (min-width: 576px) {
+    .bottom-widgets {
+        flex-direction: row;
+    }
+}
+/* Desktop y más grandes */
+@media (min-width: 992px) {
+    .event-details-column {
+        flex: 1;
+        justify-content: space-between;
+    }
+    .bottom-widgets { margin-top: auto; }
+    .detail-item { font-size: 1.2rem; }
 }
 
-.bottom-widgets {
-    margin-top: auto; /* Empuja esta sección hacia abajo */
-    display: flex;
-    gap: 20px;
-}
 
-.widget {
-    flex: 1;
-    background: #f8f8f8;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.photo-widget img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.testimonial-widget h4 {
-    margin: 0 0 30px;
-    font-size: 1.3rem;
-}
-.testimonial-widget blockquote {
-    margin: 0;
-    font-style: italic;
-    font-size: 1.1rem;
-    border-left: 3px solid #E92D93;
-    padding-left: 15px;
-}
-.testimonial-widget cite {
-    display: block;
-    text-align: right;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555;
-}
-
-/* COLUMNA DERECHA: SLIDER */
-.event-slider-column {
-    flex: 1.5; /* Le damos un poco más de espacio al slider */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slider-container {
-    width: 100%;
-    max-width: 600px; /* Tamaño máximo del slider */
-    aspect-ratio: 1 / 1; /* Lo hacemos cuadrado */
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.slider-images {
-    display: flex;
-    width: 300%; /* 3 imágenes */
-    height: 100%;
-    transition: transform 0.4s ease-in-out;
-}
-
+/* ============================================== */
+/* ====== COLUMNA DEL SLIDER (DERECHA) ====== */
+/* ============================================== */
+/* Base (Móvil) */
+.event-slider-column { display: flex; justify-content: center; align-items: center; }
+.slider-container { width: 100%; max-width: 600px; aspect-ratio: 1 / 1; position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+.slider-images { display: flex; height: 100%; transition: transform 0.4s ease-in-out; }
 .slider-img {
-    width: calc(100% / 3);
+    width: 100%;
     height: 100%;
+    flex-shrink: 0; /* <-- CORREGIDO */
     object-fit: cover;
     cursor: pointer;
 }
-
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
-    color: #333;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    transition: background 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.7); color: #333; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.5rem; transition: background 0.2s; display: flex; justify-content: center; align-items: center; }
 .nav-btn:hover { background: rgba(255, 255, 255, 1); }
 .nav-btn.prev { left: 15px; }
 .nav-btn.next { right: 15px; }
 
-/* --- RESPONSIVIDAD PARA MÓVILES --- */
-@media (max-width: 992px) {
-    .event-card {
-        flex-direction: column-reverse; /* El slider pasa arriba */
-    }
+/* Desktop y más grandes */
+@media (min-width: 992px) {
     .event-slider-column {
-        flex: auto; /* Reseteamos el flex */
+        flex: 1.5;
     }
-    .page-header h1 { font-size: 3rem; }
 }
 
-@media (max-width: 576px) {
-    .bottom-widgets {
-        flex-direction: column;
-    }
-    .detail-item { font-size: 1rem; }
-}
-
-/* Estilos del Lightbox (Sin cambios) */
-.lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; }
-.lightbox.active { display: flex; }
-.lightbox-content { max-width: 90%; max-height: 80%; }
-.lightbox .close-btn { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
-
-/* --- NUEVOS ESTILOS PARA LA NAVEGACIÓN DEL LIGHTBOX --- */
-.lightbox-nav {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none; /* Evita que se seleccione el texto de la flecha */
-}
-
-.lightbox-nav.prev {
-    left: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.lightbox-nav.next {
-    right: 0;
-    border-radius: 0 3px 3px 0;
-}
-
-.lightbox-nav:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
 
 /* ============================================== */
 /* ====== ESTILO PARA FLECHA DE REGRESO ======= */
 /* ============================================== */
 .back-to-home {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    font-size: 1.5rem;
-    color: #333;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* La hace circular */
+    background-color: #E92D93;
+    padding: 10px 20px;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transition: transform 0.2s, background-color 0.2s;
-    z-index: 100; /* Se asegura que esté por encima de otros elementos */
+    z-index: 100;
 }
 
 .back-to-home:hover {
-    transform: scale(1.1); /* Agranda un poco al pasar el mouse */
-    background-color: #ffffff;
+    transform: scale(1.05);
+    background-color: #000000;
 }
+
+/* ============================================== */
+/* ====== LIGHTBOX Y NAVEGACIÓN ====== */
+/* ============================================== */
+.lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; }
+.lightbox.active { display: flex; }
+.lightbox-content { max-width: 90%; max-height: 80%; }
+.lightbox .close-btn { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+
+.lightbox-nav { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); width: auto; padding: 16px; color: white; font-weight: bold; font-size: 20px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; }
+.lightbox-nav.prev { left: 0; border-radius: 3px 0 0 3px; }
+.lightbox-nav.next { right: 0; border-radius: 0 3px 3px 0; }
+.lightbox-nav:hover { background-color: rgba(0, 0, 0, 0.8); }

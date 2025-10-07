@@ -116,15 +116,15 @@ body {
 /* Base (Móvil) */
 .rsvp-section { text-align: center; }
 .rsvp-header { font-size: 3rem; color: #E92D93; font-weight: bold; font-style: italic; margin-bottom: 30px; }
-.rsvp-image-wrapper { background-color: #000; border-radius: 15px; padding: 15px; max-width: 1200px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-.event-image-clickable { width: 90%; height: auto; cursor: pointer; transition: transform 0.3s ease; }
+.rsvp-image-wrapper { background-color: #000; border-radius: 15px; padding: 10px 1px; max-width: 1200px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; overflow: hidden; aspect-ratio: 16 / 9;}
+.event-image-clickable { width: 100%; height: 100%; object-fit: cover; object-position: top center; cursor: pointer; transition: transform 0.3s ease; }
 .event-image-clickable:hover { transform: scale(1.02); }
 
 /* Desktop y más grandes */
 @media (min-width: 768px) {
     .rsvp-header { font-size: 5rem; }
     .rsvp-image-wrapper { padding: 20px; }
-    .event-image-clickable { width: 85%; }
+    .event-image-clickable { width: 75%; }
 }
 
 
@@ -135,16 +135,33 @@ body {
 .sponsors-section { text-align: center; }
 .sponsors-header { font-size: 2.5rem; color: #E92D93; }
 .sponsors-subheader { font-size: 1.8rem; margin-bottom: 40px; }
-.sponsors-carousel-container { display: block; }
-.sponsor-slider-wrapper { width: 350px; margin: 0 auto 50px auto; }
-/* (Estilos internos del slider como .sponsor-slider, .slider-nav, etc., se heredan) */
+
+/* El contenedor principal de los sliders */
+.sponsors-carousel-container { 
+    display: block; /* No usamos flexbox en móvil para evitar conflictos */
+}
+
+/* Cada slider individual */
+.sponsor-slider-wrapper {
+    width: 350px;           /* 1. Le damos un ancho fijo */
+    margin: 0 auto 50px auto; /* 2. Lo centramos con márgenes automáticos */
+}
 
 /* Desktop y más grandes */
 @media (min-width: 992px) {
     .sponsors-header { font-size: 5rem; }
     .sponsors-subheader { font-size: 3rem; margin-bottom: 80px; }
-    .sponsors-carousel-container { display: flex; justify-content: space-evenly; align-items: flex-start; max-width: 90%; margin: 0 auto; }
-    .sponsor-slider-wrapper { margin: 0; }
+
+    .sponsors-carousel-container {
+        display: flex; /* Reactivamos flexbox para desktop */
+        justify-content: space-evenly;
+        align-items: flex-start;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .sponsor-slider-wrapper {
+        margin: 0; /* Reseteamos el margen móvil */
+    }
 }
 
 
@@ -180,11 +197,11 @@ body {
 
 /* Desktop y más grandes */
 @media (min-width: 768px) {
-    .social-container { width: 80%; height: 70vh; max-height: 700px; gap: 60px; }
-    .social-main-logo { max-width: 280px; }
-    .social-icons img { width: 90px; height: 90px; }
+    .social-container { width: 80%; height: 110vh; max-height: 700px; gap: 60px; }
+    .social-main-logo { max-width: 270px; }
+    .social-icons img { width: 80px; height: 80px; }
     .social-icons { gap: 70px; }
-    .social-tagline { font-size: 4.5rem; }
+    .social-tagline { font-size: 4rem; }
 }
 
 
@@ -194,11 +211,197 @@ body {
 /* (Estos estilos son en su mayoría universales y no necesitan muchos cambios responsivos) */
 
 /* Modales */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); }
-.modal-content { background-color: #fcf8f8; margin: 15% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 700px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); position: relative; }
+/* El contenedor principal del modal (fondo negro) */
+.modal {
+    display: none; /* ¡LA CLAVE! Oculta los modales por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /* Estas dos líneas centran el contenido vertical y horizontalmente */
+    /* Para que funcionen, el display debe ser FLEX */
+    justify-content: center;
+    align-items: center;
+}
+
+/* La caja blanca con el contenido */
+.modal-content {
+    background-color: #fcf8f8;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-height: 90vh; /* Altura máxima para que no se salga de la pantalla */
+    overflow-y: auto; /* Crea un scroll si el contenido es muy largo */
+    padding: 30px;
+    margin: 0; /* Reseteamos el margen que causaba problemas */
+}
+
+/* (El resto de tus estilos de .close-btn y el contenido del modal van aquí) */
+
 .close-btn { color: #000; float: right; font-size: 35px; font-weight: bold; cursor: pointer; }
 .close-btn:hover, .close-btn:focus { color: #333; }
-/* (Copia y pega el resto de tus estilos de modales de "About Us", formularios, etc. aquí) */
+
+/* ============================================== */
+/* ====== ESTILOS DEL MODAL "ABOUT US" ====== */
+/* ============================================== */
+
+/* Título Principal ("About Us!") */
+.about-us-main-title {
+    color: #E92D93;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 35px;
+    padding-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Contenedor para cada sección de texto */
+.about-us-section {
+    margin-bottom: 25px;
+}
+
+/* Subtítulos (Born from Experience, etc.) */
+.about-us-subtitle {
+    color: #E92D93;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Párrafos de texto */
+.about-us-body {
+    color: #333333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0;
+}
+
+/* Firma final */
+.about-us-signature {
+    color: #E92D93;
+    font-size: 1.4rem;
+    text-align: right; /* Alineado a la derecha */
+    margin-top: 40px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* ============================================== */
+/* ====== ESTILOS DEL MODAL "BECOME A SPONSOR" ====== */
+/* ============================================== */
+
+/* Título Principal */
+.sponsor-main-title {
+    color: #E92D93;
+    font-size: 2.8rem; /* Mismo tamaño que "About Us!" */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Párrafos de texto */
+.sponsor-body {
+    color: #333333;
+    font-size: 1.1rem; /* Mismo tamaño que el cuerpo de "About Us" */
+    line-height: 1.6;
+    text-align: center; /* Texto centrado como en la imagen */
+    margin: 0;
+}
+
+/* Espacio extra para la línea de contacto */
+.sponsor-body.contact-line {
+    margin-top: 30px;
+}
+
+/* Enlace del correo electrónico */
+.sponsor-email-link {
+    color: #E92D93;
+    font-weight: bold;
+    text-decoration: none; /* Quitamos el subrayado por defecto */
+}
+.sponsor-email-link:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* ============================================== */
+/* ====== ESTILOS DEL MODAL DEL FORMULARIO ====== */
+/* ============================================== */
+
+/* Título del Formulario */
+.form-main-title {
+    color: #E92D93;
+    font-size: 2.8rem; /* Mismo tamaño que los otros popups */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Contenido del Formulario */
+.form-modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espacio entre cada campo del formulario */
+}
+
+.form-modal-content label {
+    display: block; /* La etiqueta ocupa su propia línea */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.form-modal-content input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif; /* Usamos una fuente más legible para los campos */
+}
+
+/* Botón de Suscripción */
+.btn-subscribe {
+    /* Quitamos el ancho del 100% para que se ajuste al contenido */
+    width: auto; 
+    
+    /* Centramos el botón dentro del formulario */
+    align-self: center;
+
+    background-color: #E92D93;
+    color: white;
+    
+    /* Hacemos el padding más pequeño y proporcional al texto */
+    padding: 12px 30px; 
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem; /* Ajustamos el tamaño de la fuente si es necesario */
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-subscribe:hover {
+    background-color: #c82377;
+}
+
+/* (Aquí seguirían los estilos de otros modales, como el del formulario, si los tuvieras) */
 
 /* Lightbox de RSVP */
 .rsvp-lightbox-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
@@ -216,7 +419,7 @@ body {
 .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #E92D93; background-color: white; cursor: pointer; transition: background-color 0.3s; }
 .dot.active { background-color: #E92D93; }
 .contact-slide { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 25px 20px; box-sizing: border-box; background-color: #fdf6fa; text-align: center; }
-.contact-slide h4 { font-size: 1.8rem; color: #333; margin: 0 0 15px; }
+.contact-slide h4 { font-size: 1.8rem; color: #333; margin: 0 0 15px; min-height: 2.4em; }
 .contact-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #E92D93; margin-bottom: 15px; }
 .contact-slide p { font-size: 1rem; color: #555; margin: 0 0 20px; flex-grow: 1; }
 .contact-buttons { display: flex; gap: 15px; }
