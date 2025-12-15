@@ -15,11 +15,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardPastEvents = document.getElementById('card-past-events');
     const cardJoinList = document.getElementById('card-join-list');
     const cardSponsor = document.getElementById('card-sponsor');
+    const btnNextEvent = document.getElementById('btn-next-event');
+    const btnLearnMore = document.getElementById('btn-learn-more');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const btnViewEvents = document.getElementById('btn-view-events');
+    const btnGetInTouch = document.getElementById('btn-get-in-touch');
+    const btnMeetFounders = document.getElementById('btn-meet-founders');
+
+    // --- Lógica de menú móvil ---
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 
     const simpleModal = document.getElementById('simpleModal');
     const formModal = document.getElementById('formModal');
     
     const simpleModalContent = document.querySelector('#simpleModal .modal-content');
+
+    function openSimpleModal(contentHTML) {
+        if (!simpleModal || !simpleModalContent) return;
+        simpleModalContent.innerHTML = contentHTML;
+        simpleModal.style.display = 'flex';
+
+        const newCloseBtn = simpleModalContent.querySelector('.close-btn');
+        if (newCloseBtn) {
+            newCloseBtn.onclick = function() {
+                closeModal(simpleModal);
+            };
+        }
+    }
+
+    function openFormModal() {
+        if (formModal) {
+            formModal.style.display = 'flex';
+        }
+    }
     
     function closeModal(modalElement) {
         modalElement.style.display = 'none';
@@ -70,15 +113,7 @@ const aboutUsContentHTML = `
 `;
 
     cardAboutUs.addEventListener('click', function() {
-        simpleModalContent.innerHTML = aboutUsContentHTML;
-        simpleModal.style.display = 'flex';
-
-        const newCloseBtn = simpleModalContent.querySelector('.close-btn');
-        if (newCloseBtn) {
-            newCloseBtn.onclick = function() {
-                closeModal(simpleModal);
-            };
-        }
+        openSimpleModal(aboutUsContentHTML);
     });
 
     cardPastEvents.addEventListener('click', function() {
@@ -86,11 +121,19 @@ const aboutUsContentHTML = `
     });
 
     cardJoinList.addEventListener('click', function() {
-        formModal.style.display = 'flex';
+        openFormModal();
     });
 
+    if (btnNextEvent) {
+        btnNextEvent.addEventListener('click', openFormModal);
+    }
+
+    if (btnGetInTouch) {
+        btnGetInTouch.addEventListener('click', openFormModal);
+    }
+
     // Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
-cardSponsor.addEventListener('click', function() {
+    cardSponsor.addEventListener('click', function() {
     // Definimos el nuevo contenido HTML con clases para darle estilo
     const sponsorContentHTML = `
         <span class="close-btn">&times;</span>
@@ -109,17 +152,20 @@ cardSponsor.addEventListener('click', function() {
     `;
 
     // 1. Inyectamos el nuevo contenido en el modal.
-    simpleModalContent.innerHTML = sponsorContentHTML;
-    simpleModal.style.display = 'flex'; // Usamos flex para centrar
-
-    // 2. Reasignamos el evento de cierre al nuevo botón 'X' que acabamos de crear.
-    const newCloseBtn = simpleModalContent.querySelector('.close-btn');
-    if (newCloseBtn) {
-        newCloseBtn.onclick = function() {
-            closeModal(simpleModal);
-        };
-    }
+    openSimpleModal(sponsorContentHTML);
 });
+
+    if (btnLearnMore) {
+        btnLearnMore.addEventListener('click', function() {
+            openSimpleModal(aboutUsContentHTML);
+        });
+    }
+
+    if (btnViewEvents) {
+        btnViewEvents.addEventListener('click', function() {
+            window.location.href = 'past-events.html';
+        });
+    }
 
 // --- LÓGICA DE SLIDERS ---
     let slideIndex = [0, 0, 0];
@@ -192,3 +238,8 @@ cardSponsor.addEventListener('click', function() {
     }
 
 }); // <-- ESTA ES LA ÚNICA LLAVE DE CIERRE QUE DEBE HABER AL FINAL
+    if (btnMeetFounders) {
+        btnMeetFounders.addEventListener('click', function() {
+            openSimpleModal(aboutUsContentHTML);
+        });
+    }

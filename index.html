@@ -34,10 +34,33 @@
 </head>
 <body>
 
-<section class="intro-section">
+<header class="site-header">
+    <div class="nav-container">
+        <a href="#home" class="nav-logo">
+            <img src="img/LOGO LENDING LADIES.png" alt="Lending Ladies" />
+        </a>
+
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-menu">
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#sponsors">Sponsors</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#join" class="nav-cta">Join Us</a>
+        </div>
+    </div>
+</header>
+
+<section id="home" class="intro-section">
     <div class="intro-container">
         <div class="column-left">
-            <img src="img/LOGO LENDING LADIES.png" alt="Lending Ladies Logo" class="logo">
             <div class="tagline-box">
                 <p>
                      <i>
@@ -55,7 +78,101 @@
     </div>
 </section>
 
-<section class="card-feature-section">
+<section class="hero-secondary-section">
+    <div class="hero-secondary-container">
+        <div class="hero-secondary-text">
+            <h1>Empowering Women in Finance</h1>
+            <p class="hero-secondary-description">
+                Join a community of inspiring women in lending, banking, and commercial real estate.
+                Connect, grow, and thrive through meaningful networking and empowering conversations.
+            </p>
+            <div class="hero-secondary-actions">
+                <button class="btn-primary" id="btn-next-event">Join Our Next Event</button>
+                <button class="btn-secondary" id="btn-learn-more">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-secondary-media">
+            <img src="img/IMA-FOR-BG-COLLAGE.png" alt="Women networking" class="hero-secondary-image">
+            <div class="hero-stat-card">
+                <div class="hero-stat-icon">
+                    <span role="img" aria-label="Group icon">👥</span>
+                </div>
+                <div>
+                    <p class="hero-stat-title">500+ Attendees</p>
+                    <p class="hero-stat-subtitle">Strong &amp; Growing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story-section">
+    <div class="story-container">
+        <div class="story-media">
+            <img src="img/Ima-box-1.png" alt="Founders connecting over a toast">
+        </div>
+        <div class="story-content">
+            <p class="eyebrow">Our Story</p>
+            <h2>Lending Ladies</h2>
+            <p>
+                Lending Ladies was born over a glass of wine and a real conversation between two women navigating the highs and lows of corporate life.
+                Co-founders <span class="highlight">Priscilla Picasso</span> and <span class="highlight">Liz Castillo</span> came together to create something they wished existed.
+            </p>
+            <p>
+                Whether you're climbing the corporate ladder, running your own business, or seeking clarity in your career journey,
+                Lending Ladies is a place where you belong and where your voice matters.
+            </p>
+            <button class="btn-primary story-btn" id="btn-meet-founders">
+                Meet the Founders
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="mission-section">
+    <div class="mission-container">
+        <div class="mission-heading">
+            <h2>Our Mission</h2>
+            <p>To motivate, support, and uplift women through intentional networking events featuring inspiring speakers, meaningful dialogue, and opportunities for real connection.</p>
+        </div>
+        <div class="mission-cards">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.4-7 10-7 10z" />
+                    </svg>
+                </div>
+                <h3>Support</h3>
+                <p>A safe, empowering space for women to connect and grow together through shared experiences.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="8" cy="7" r="3" />
+                        <circle cx="16" cy="7" r="3" />
+                        <path d="M4 19a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4" />
+                        <path d="M12 19a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4" />
+                    </svg>
+                </div>
+                <h3>Connect</h3>
+                <p>Build meaningful relationships with entrepreneurs, lenders, bankers, and real estate professionals.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="12" cy="12" r="1" />
+                    </svg>
+                </div>
+                <h3>Grow</h3>
+                <p>Advance your career through inspiring speakers, workshops, and opportunities for professional development.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="join" class="card-feature-section">
     <div class="card-grid">
         <div class="card card-modal-open" id="card-about-us">
             <img src="img/Ima-box-1.png" alt="About Us" class="card-image">
@@ -87,7 +204,7 @@
     </div>
 </section>
 
-<section class="rsvp-section">
+<section id="events" class="rsvp-section">
     <h2 class="rsvp-header">RSVP for our next event!</h2>
     
     <div class="rsvp-image-wrapper">
@@ -100,7 +217,7 @@
     <img class="rsvp-lightbox-content" id="rsvp-lightbox-img">
 </div>
 
-<section class="sponsors-section">
+<section id="sponsors" class="sponsors-section">
     <h2 class="sponsors-header">Thank you to our sponsors</h2>
     <h3 class="sponsors-subheader">Presenting Sponsors & Venue Host</h3>
 
@@ -220,6 +337,18 @@
             <img src="img/Logos-Sponsors---Dealflow-Houston--Network.jpg" alt="Dealflow Houston Logo">
         </div>
 
+    </div>
+</section>
+
+<section class="ready-to-join-section">
+    <div class="ready-container">
+        <div class="ready-icon">📅</div>
+        <h2>Ready to Join Our Community?</h2>
+        <p>Don't miss out on our next networking event. Connect with like-minded women and take your career to the next level.</p>
+        <div class="ready-actions">
+            <button class="ready-btn primary" id="btn-view-events">View Upcoming Events</button>
+            <button class="ready-btn secondary" id="btn-get-in-touch">Get in Touch</button>
+        </div>
     </div>
 </section>
 
@@ -359,7 +488,7 @@
     </div>
 </section>
 
-<section class="social-media-section">
+<section id="contact" class="social-media-section">
 
     <div class="social-container">
         <img src="img/LOGO---LENDING-LADIES-white.png" alt="Lending Ladies Logo" class="social-main-logo">
