@@ -12,12 +12,13 @@
 
 body {
     font-family: 'Cormorant Garamond', serif;
+    background-color: #fde7f2;
     background: linear-gradient(
         180deg,
-        rgba(233, 45, 147, 0.12) 0%,
-        #ffffff 18%,
-        #ffffff 82%,
-        rgba(233, 45, 147, 0.12) 100%
+        #f2b6d4 0%,
+        #fde7f2 20%,
+        #fde7f2 80%,
+        #f2b6d4 100%
     );
     background-attachment: fixed;
 }
@@ -36,7 +37,7 @@ body {
 .site-header {
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: #fde7f2;
     z-index: 100;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -70,7 +71,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #fde7f2;
     padding: 20px;
     display: none;
     flex-direction: column;
@@ -236,7 +237,7 @@ body {
 /* ====== 1B. HERO SECUNDARIO ====== */
 /* ============================================== */
 .hero-secondary-section {
-    background: linear-gradient(180deg, #fff 0%, #fff 100%);
+    background: transparent;
     padding: 60px 20px;
 }
 
@@ -385,7 +386,7 @@ body {
 /* ====== 1C. OUR STORY ====== */
 /* ============================================== */
 .story-section {
-    background-color: #fff4fb;
+    background-color: transparent;
     padding: 70px 20px;
 }
 
@@ -506,11 +507,12 @@ body {
 }
 
 .mission-card {
-    background-color: #fff4fb;
+    background-color: #C01B6F;
     border-radius: 24px;
     padding: 35px 30px;
     text-align: center;
     box-shadow: 0 12px 30px rgba(233, 45, 147, 0.08);
+    color: #fff;
 }
 
 .mission-icon {
@@ -535,13 +537,11 @@ body {
 }
 
 .mission-card h3 {
-    color: #8c104f;
     font-size: 1.3rem;
     margin-bottom: 12px;
 }
 
 .mission-card p {
-    color: #3f3f3f;
     font-size: 1.05rem;
     line-height: 1.6;
 }
@@ -646,7 +646,7 @@ body {
 /* Base (Móvil) */
 
 .card-feature-section {
-    background-color: #ffffff; /* Este estilo ya lo tenés */
+    background-color: transparent;
 
     /* --- AGREGÁ ESTAS DOS LÍNEAS --- */
     position: relative;
@@ -772,7 +772,7 @@ body {
 
 /* Desktop y más grandes */
 @media (min-width: 768px) {
-    .social-container { width: 80%; height: 110vh; max-height: 700px; gap: 60px; background-color: #7A2C4D; }
+    .social-container { width: 90%; height: 70vh; max-height: 550px; gap: 50px; background-color: #7A2C4D; }
     .social-main-logo { max-width: 270px; }
     .social-icons img { width: 80px; height: 80px; }
     .social-icons { gap: 70px; }

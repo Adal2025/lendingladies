@@ -8,12 +8,13 @@
 
 body {
     font-family: 'Cormorant Garamond', serif;
+    background-color: #fde7f2;
     background: linear-gradient(
         180deg,
-        rgba(233, 45, 147, 0.12) 0%,
-        #ffffff 18%,
-        #ffffff 82%,
-        rgba(233, 45, 147, 0.12) 100%
+        #f2b6d4 0%,
+        #fde7f2 20%,
+        #fde7f2 80%,
+        #f2b6d4 100%
     );
     background-attachment: fixed;
     color: #1b1b1b;
@@ -42,7 +43,7 @@ a {
 }
 
 .events-hero {
-    padding: 140px 20px 90px;
+    padding: 70px 20px 50px;
     background: linear-gradient(120deg, #ffe1f1 0%, #fff5fb 60%, #ffd6ec 100%);
     text-align: center;
 }
