@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Golos+Text:wght@400;500;600;700&display=swap');
 
 /* ============================================== */
 /* ====== ESTILOS GLOBALES Y MOBILE-FIRST ====== */
@@ -11,16 +11,26 @@
 }
 
 body {
-    font-family: 'Cormorant Garamond', serif;
-    background-color: #fde7f2;
+    font-family: 'Golos Text', 'Cormorant Garamond', serif;
+    background-color: #f9f6f7;
     background: linear-gradient(
         180deg,
-        #f2b6d4 0%,
-        #fde7f2 20%,
-        #fde7f2 80%,
-        #f2b6d4 100%
+        #f8dbe8 0%,
+        #fdfbfc 20%,
+        #fdfbfc 80%,
+        #f8dbe8 100%
     );
     background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #e476ae;
 }
 
 .hidden {
@@ -37,7 +47,7 @@ body {
 .site-header {
     position: sticky;
     top: 0;
-    background-color: #fde7f2;
+    background-color: #fff;
     z-index: 100;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -63,7 +73,8 @@ body {
 }
 
 .nav-logo img {
-    height: 80px;
+    height: 35px;
+    width: auto;
     }
 
 .nav-menu {
@@ -71,7 +82,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #fde7f2;
+    background-color: #fff;
     padding: 20px;
     display: none;
     flex-direction: column;
@@ -208,7 +219,7 @@ body {
 .tagline-box p { font-size: 2.8rem; font-weight: bold; font-style: italic; }
 .pink-text { color: #E92D93; }
 .black-text { color: black; }
-.photo-image { max-width: 100%; height: auto; border-radius: 8px; }
+.photo-image { max-width: 130%; height: auto; border-radius: 8px; }
 
 /* Desktop y más grandes */
 @media (min-width: 768px) {
@@ -227,7 +238,8 @@ body {
         max-width: 1400px;
         margin: 0 auto;
     }
-    .column-left, .column-right { flex: 1; }
+    .column-left { flex: 0.9; }
+    .column-right { flex: 1.1; }
     .logo { max-width: 40%; }
     .tagline-box { margin-top: 50px; }
     .tagline-box p { font-size: 5rem; }
@@ -264,7 +276,7 @@ body {
 
 .hero-secondary-text h1 {
     font-size: 2.8rem;
-    color: #E92D93;
+    color: #e476ae;
     margin-bottom: 20px;
 }
 
@@ -413,7 +425,7 @@ body {
 
 .story-content h2 {
     font-size: 2.4rem;
-    color: #E92D93;
+    color: #e476ae;
     margin-bottom: 15px;
 }
 
@@ -469,6 +481,7 @@ body {
     color: #2f2f2f;
     letter-spacing: -0.01em;
     font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .mission-highlight {
@@ -507,19 +520,19 @@ body {
 }
 
 .mission-card {
-    background-color: #C01B6F;
-    border-radius: 24px;
-    padding: 35px 30px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 20px;
     text-align: center;
-    box-shadow: 0 12px 30px rgba(233, 45, 147, 0.08);
-    color: #fff;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    color: #2f2f2f;
 }
 
 .mission-icon {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #ffe6f2;
+    background: #fff0f7;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
@@ -529,7 +542,7 @@ body {
 .mission-icon svg {
     width: 36px;
     height: 36px;
-    stroke: #C01B6F;
+    stroke: #e476ae;
     fill: none;
     stroke-width: 1.8;
     stroke-linecap: round;
@@ -539,17 +552,146 @@ body {
 .mission-card h3 {
     font-size: 1.3rem;
     margin-bottom: 12px;
+    color: #e476ae;
 }
 
 .mission-card p {
     font-size: 1.05rem;
     line-height: 1.6;
+    color: #4a4a4a;
 }
 
 @media (min-width: 992px) {
     .mission-cards {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+    }
+}
+
+/* ============================================== */
+/* ====== 1E. IMPACT SNAPSHOT ====== */
+/* ============================================== */
+.impact-section {
+    padding: 80px 20px;
+}
+
+.impact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.impact-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 40px;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.impact-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.impact-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #e476ae;
+    margin-bottom: 8px;
+}
+
+.impact-label {
+    font-size: 1rem;
+    color: #4a4a4a;
+    margin: 0;
+}
+
+.impact-quote {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: #fff0f7;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.impact-quote-text {
+    font-size: 1.2rem;
+    color: #2f2f2f;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.impact-quote-author {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: #6b6b6b;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .impact-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================== */
+/* ====== 1F. WHAT WE DO ====== */
+/* ============================================== */
+.services-section {
+    padding: 80px 20px 100px;
+}
+
+.services-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.service-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    text-align: left;
+}
+
+.service-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.service-text {
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -578,7 +720,7 @@ body {
 
 .ready-text h2 {
     font-size: 2.3rem;
-    color: #2a2a2a;
+    color: #e476ae;
     margin-bottom: 15px;
 }
 
@@ -664,7 +806,7 @@ body {
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 .card-image { width: 100%; height: auto; padding: 3px; }
 .card-text { padding: 15px; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 80px; }
-.card-text h2 { margin: 0; font-size: 2.5rem; color: #333; }
+.card-text h2 { margin: 0; font-size: 2.5rem; color: #e476ae; }
 
 /* Tablet y más grandes */
 @media (min-width: 768px) {
@@ -690,7 +832,7 @@ body {
 /* ============================================== */
 /* Base (Móvil) */
 .rsvp-section { text-align: center; }
-.rsvp-header { font-size: 3rem; color: #E92D93; font-weight: bold; font-style: italic; margin-bottom: 30px; }
+.rsvp-header { font-size: 3rem; color: #e476ae; font-weight: bold; font-style: italic; margin-bottom: 30px; }
 .rsvp-image-wrapper { background-color: #000; border-radius: 15px; padding: 10px 1px; max-width: 1200px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; overflow: hidden; aspect-ratio: 16 / 9;}
 .event-image-clickable { width: 100%; height: 100%; object-fit: cover; object-position: top center; cursor: pointer; transition: transform 0.3s ease; }
 .event-image-clickable:hover { transform: scale(1.02); }
@@ -708,7 +850,7 @@ body {
 /* ============================================== */
 /* Base (Móvil) */
 .sponsors-section { text-align: center; }
-.sponsors-header { font-size: 2.5rem; color: #E92D93; }
+.sponsors-header { font-size: 2.5rem; color: #e476ae; }
 .sponsors-subheader { font-size: 1.8rem; margin-bottom: 40px; }
 
 /* El contenedor principal de los sliders */
@@ -745,7 +887,7 @@ body {
 /* ============================================== */
 /* Base (Móvil) */
 .secondary-sponsors-section { text-align: center; }
-.secondary-sponsors-header { color: black; font-size: 2rem; font-weight: bold; margin-bottom: 40px; }
+.secondary-sponsors-header { color: #e476ae; font-size: 2rem; font-weight: bold; margin-bottom: 40px; }
 .secondary-sponsors-grid-simple { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .sponsor-logo-box { border: 1px solid #eee; border-radius: 8px; aspect-ratio: 1 / 1; display: flex; justify-content: center; align-items: center; padding: 10px; }
 .sponsor-logo-box img { width: 85%; height: 85%; object-fit: contain; transition: filter 0.3s; }
@@ -768,7 +910,7 @@ body {
 .social-icons { display: flex; gap: 40px; }
 .social-icons img { width: 50px; height: 50px; transition: transform 0.2s; }
 .social-icons a:hover img { transform: scale(1.1); }
-.social-tagline { color: white; font-size: 2.25rem; font-weight: bold; text-align: center; }
+.social-tagline { color: #fff; font-size: 2.25rem; font-weight: bold; text-align: center; }
 
 /* Desktop y más grandes */
 @media (min-width: 768px) {
@@ -828,7 +970,7 @@ body {
 
 /* Título Principal ("About Us!") */
 .about-us-main-title {
-    color: #E92D93;
+    color: #e476ae;
     font-size: 2.8rem;
     font-weight: 700;
     text-align: center;
@@ -844,7 +986,7 @@ body {
 
 /* Subtítulos (Born from Experience, etc.) */
 .about-us-subtitle {
-    color: #E92D93;
+    color: #e476ae;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -862,7 +1004,7 @@ body {
 
 /* Firma final */
 .about-us-signature {
-    color: #E92D93;
+    color: #e476ae;
     font-size: 1.4rem;
     text-align: right; /* Alineado a la derecha */
     margin-top: 40px;
@@ -876,7 +1018,7 @@ body {
 
 /* Título Principal */
 .sponsor-main-title {
-    color: #E92D93;
+    color: #e476ae;
     font-size: 2.8rem; /* Mismo tamaño que "About Us!" */
     font-weight: 700;
     text-align: center;
@@ -914,7 +1056,7 @@ body {
 
 /* Título del Formulario */
 .form-main-title {
-    color: #E92D93;
+    color: #e476ae;
     font-size: 2.8rem; /* Mismo tamaño que los otros popups */
     font-weight: 700;
     text-align: center;
