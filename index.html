@@ -50,10 +50,10 @@
             <nav class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#events">Events</a>
-                <a href="#sponsors">Sponsors</a>
+                <a href="#sponsorship-opportunities">Sponsors</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <a href="#join" class="nav-cta">Join Us</a>
+            <a href="#formModal" class="nav-cta">Join Us</a>
         </div>
     </div>
 </header>
@@ -214,6 +214,7 @@
 </section>
 
 <section class="story-section">
+    <h2 class="services-title">Led by Community Connectors</h2>
     <div class="story-container">
         <div class="story-media">
             <img src="img/Ima-box-1.png" alt="Founders connecting over a toast">
@@ -236,7 +237,64 @@
     </div>
 </section>
 
-<section id="join" class="card-feature-section">
+<section id="events" class="city-tabs-section">
+    <div class="city-tabs-header">
+        <h2 class="city-tabs-title">Upcoming &amp; Recent Events</h2>
+    </div>
+    <div class="city-tabs-controls" role="tablist" aria-label="City events">
+        <button class="city-tab active" type="button" role="tab" aria-selected="true" data-city="houston" data-image="img/Houston.jpg" data-alt="Houston event highlight">Houston</button>
+        <button class="city-tab" type="button" role="tab" aria-selected="false" data-city="austin" data-image="img/Austin.jpg" data-alt="Austin event highlight">Austin</button>
+        <button class="city-tab" type="button" role="tab" aria-selected="false" data-city="san-antonio" data-image="img/San Antonio.jpg" data-alt="San Antonio event highlight">San Antonio</button>
+    </div>
+    <div class="city-tabs-media">
+        <img src="img/Houston.jpg" alt="Houston event highlight" class="city-tabs-image">
+        <div class="city-event-card" data-city="houston">
+            <p class="city-event-title">Houston Networking Brunch</p>
+            <p class="city-event-date">April 2025</p>
+            <p class="city-event-desc">A morning of mentorship, community, and new lending connections.</p>
+        </div>
+        <div class="city-event-card" data-city="austin" hidden>
+            <p class="city-event-title">Austin Industry Roundtable</p>
+            <p class="city-event-date">May 2025</p>
+            <p class="city-event-desc">Panel-driven conversations with lenders, bankers, and real estate leaders.</p>
+        </div>
+        <div class="city-event-card" data-city="san-antonio" hidden>
+            <p class="city-event-title">San Antonio Power Lunch</p>
+            <p class="city-event-date">June 2025</p>
+            <p class="city-event-desc">An intimate lunch designed to spark collaboration and referrals.</p>
+        </div>
+    </div>
+</section>
+
+<section id="sponsorship-opportunities" class="sponsor-collab-section">
+    <div class="sponsor-collab-container">
+        <h2 class="services-title">Sponsorship Opportunities</h2>
+        <p class="sponsor-collab-text">
+            Collaboration is critical for shared success. It’s our guiding principle and standard in serving the world’s greatest companies.
+        </p>
+        <div class="sponsor-collab-logos">
+            <img src="img/Logos-Sponsors---Gulf-Coast.jpg" alt="Gulf Coast Business Credit logo">
+            <img src="img/Logos-Sponsors---The-Zig.jpg" alt="The Zig logo">
+            <img src="img/invinciblespaces_logo (1).png" alt="Invincible Spaces logo">
+            <img src="img/Logos-Sponsors-Flatbay.jpg" alt="Flatbay logo">
+            <img src="img/Logos-Sponsors---ADP.jpg" alt="ADP logo">
+            <img src="img/Logos-Sponsors---Advantage.jpg" alt="Advantage logo">
+            <img src="img/Logos-Sponsors---Bakertily.jpg" alt="Bakertily logo">
+            <img src="img/Logos-Sponsors---Lincoln.jpg" alt="Lincoln logo">
+            <img src="img/Logos-Sponsors---Bridgepoint.jpg" alt="Bridgepoint logo">
+            <img src="img/Logos-Sponsors---Texas-Capital.jpg" alt="Texas Capital logo">
+            <img src="img/Logos-Sponsors---Dealflow-Houston--Network.jpg" alt="Dealflow Houston Network logo">
+        </div>
+        <div class="sponsor-collab-actions">
+            <a class="btn-primary sponsor-collab-btn" href="#sponsors">Learn more about our sponsors</a>
+            <button class="btn-primary sponsor-collab-btn sponsor-collab-btn-outline" type="button" id="btn-sponsor-opps">
+                Become a sponsor
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="join" class="card-feature-section" hidden>
     <div class="card-grid">
         <div class="card card-modal-open" id="card-about-us">
             <img src="img/Ima-box-1.png" alt="About Us" class="card-image">
@@ -268,7 +326,7 @@
     </div>
 </section>
 
-<section id="events" class="rsvp-section">
+<section id="events" class="rsvp-section" hidden>
     <h2 class="rsvp-header">RSVP FOR OUR NEXT EVENT!</h2>
     
     <div class="rsvp-image-wrapper">
@@ -281,7 +339,7 @@
     <img class="rsvp-lightbox-content" id="rsvp-lightbox-img">
 </div>
 
-<section id="sponsors" class="sponsors-section">
+<section id="sponsors" class="sponsors-section" hidden>
     <h2 class="sponsors-header">THANK YOU TO OUR SPONSORS</h2>
     <h3 class="sponsors-subheader">PRESENTING SPONSORS &amp; VENUE HOST</h3>
 
@@ -370,7 +428,7 @@
     </div>
 </section>
 
-<section class="secondary-sponsors-section">
+<section class="secondary-sponsors-section" hidden>
     <h3 class="secondary-sponsors-header">SUPPORTING &amp; ENTERTAINMENT SPONSORS</h3>
 
     <div class="secondary-sponsors-grid-simple">

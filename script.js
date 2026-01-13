@@ -237,6 +237,39 @@ const aboutUsContentHTML = `
         });
     }
 
+    const cityTabs = document.querySelectorAll('.city-tab');
+    const cityCards = document.querySelectorAll('.city-event-card');
+    const cityImage = document.querySelector('.city-tabs-image');
+
+    function setActiveCity(city) {
+        const activeTab = document.querySelector(`.city-tab[data-city="${city}"]`);
+        const tabImage = activeTab ? activeTab.dataset.image : '';
+        const tabAlt = activeTab ? activeTab.dataset.alt : '';
+
+        cityTabs.forEach(tab => {
+            const isActive = tab.dataset.city === city;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        cityCards.forEach(card => {
+            card.hidden = card.dataset.city !== city;
+        });
+
+        if (cityImage && tabImage) {
+            cityImage.src = tabImage;
+            cityImage.alt = tabAlt;
+        }
+    }
+
+    if (cityTabs.length) {
+        cityTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                setActiveCity(tab.dataset.city);
+            });
+        });
+    }
+
 }); // <-- ESTA ES LA ÚNICA LLAVE DE CIERRE QUE DEBE HABER AL FINAL
     if (btnMeetFounders) {
         btnMeetFounders.addEventListener('click', function() {
