@@ -1,0 +1,44 @@
+name: Pages Build and Deploy
+on:
+  workflow_call:
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+      - name: Determine output directory
+        id: outdir
+        run: |
+          if [ -d "./build" ]; then echo "dir=build" >> $GITHUB_OUTPUT
+          elif [ -d "./docs" ]; then echo "dir=docs" >> $GITHUB_OUTPUT
+          else echo "dir=build" >> $GITHUB_OUTPUT
+      - name: Check size and large files
+        run: |
+          DIR="${{ steps.outdir.outputs.dir }}"
+          du -sh "$DIR" || true
+          echo "Files >2MB:"
+          find "$DIR" -type f -size +2M -exec ls -lh {} \; | awk '{print $5, $9}' | sort -h || true
+      - name: Cleanup unnecessary files before deploy
+        run: |
+          DIR="${{ steps.outdir.outputs.dir }}"
+          find "$DIR" -name '*.map' -type f -delete || true
+          rm -rf "$DIR"/tests "$DIR"/spec || true
+          du -sh "$DIR" || true
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ${{ steps.outdir.outputs.dir }}
