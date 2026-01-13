@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnLearnMore = document.getElementById('btn-learn-more');
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navJoinUs = document.querySelector('.nav-cta');
     const btnViewEvents = document.getElementById('btn-view-events');
     const btnGetInTouch = document.getElementById('btn-get-in-touch');
     const btnMeetFounders = document.getElementById('btn-meet-founders');
@@ -130,6 +131,13 @@ const aboutUsContentHTML = `
 
     if (btnGetInTouch) {
         btnGetInTouch.addEventListener('click', openFormModal);
+    }
+
+    if (navJoinUs) {
+        navJoinUs.addEventListener('click', function(event) {
+            event.preventDefault();
+            openFormModal();
+        });
     }
 
     // Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
