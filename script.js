@@ -120,6 +120,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    const recaptchaContainer = document.getElementById('recaptcha-container');
+    if (recaptchaContainer) {
+        window.onRecaptchaLoad = function() {
+            const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+            const siteKey = isLocalhost
+                ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+                : '6LfBrkosAAAAANnUG1DuVIYqNGfOCyyEprRYxT45';
+            grecaptcha.render(recaptchaContainer, { sitekey: siteKey });
+        };
+    }
     
     function closeModal(modalElement) {
         modalElement.style.display = 'none';
