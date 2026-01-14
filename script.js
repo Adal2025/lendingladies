@@ -64,6 +64,62 @@ document.addEventListener('DOMContentLoaded', function() {
             formModal.style.display = 'flex';
         }
     }
+
+    const joinForm = document.getElementById('joinForm');
+    if (joinForm) {
+        const submitButton = joinForm.querySelector('button[type="submit"]');
+        const statusMessage = joinForm.querySelector('.form-status');
+
+        function setStatus(message, isError) {
+            if (!statusMessage) return;
+            statusMessage.textContent = message;
+            statusMessage.style.color = isError ? '#b3261e' : '#0b6b2c';
+        }
+
+        joinForm.addEventListener('submit', async function(event) {
+            if (typeof grecaptcha === 'undefined') {
+                return;
+            }
+            if (!grecaptcha.getResponse()) {
+                event.preventDefault();
+                setStatus('Please complete the reCAPTCHA.', true);
+                return;
+            }
+            event.preventDefault();
+            setStatus('');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+            }
+
+            try {
+                const response = await fetch(joinForm.action, {
+                    method: 'POST',
+                    body: new FormData(joinForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    joinForm.reset();
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.reset();
+                    }
+                    setStatus('Thanks! Your message was sent successfully.', false);
+                } else {
+                    setStatus('Something went wrong. Please try again.', true);
+                }
+            } catch (error) {
+                setStatus('Unable to send right now. Please try again later.', true);
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Subscribe';
+                }
+            }
+        });
+    }
     
     function closeModal(modalElement) {
         modalElement.style.display = 'none';

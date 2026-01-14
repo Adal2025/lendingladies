@@ -22,6 +22,8 @@
     <meta name="twitter:description" content="Join the #1 community built to elevate, support, and connect women across all areas of the lending world in Texas.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/Adal2025/lendingladies/main/img/LOGO---LENDING-LADIES---Miniatura.jpg">
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script type="application/ld+json"> {
           "@context": "https://schema.org",
   "@type": "WebSite",
@@ -661,7 +663,7 @@
         <span class="close-btn">&times;</span>
         <h2 class="form-main-title">JOIN OUR EMAIL LIST</h2>
         
-        <form>
+        <form id="joinForm" action="https://formspree.io/f/mwvvpvlb" method="POST">
             <div class="form-group">
                 <label for="fname">First Name:</label>
                 <input type="text" id="fname" name="firstname" placeholder="Enter your first name" required>
@@ -682,7 +684,12 @@
                 <input type="tel" id="tel" name="telephone" placeholder="Enter your phone number">
             </div>
 
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LfBrkosAAAAANnUG1DuVIYqNGfOCyyEprRYxT45"></div>
+            </div>
+
             <button type="submit" class="btn-subscribe">Subscribe</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
         </form>
     </div>
 </div>
