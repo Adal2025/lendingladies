@@ -65,10 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    const joinForm = document.getElementById('joinForm');
-    if (joinForm) {
-        const submitButton = joinForm.querySelector('button[type="submit"]');
-        const statusMessage = joinForm.querySelector('.form-status');
+    function setupForm(formId, submitLabel) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const statusMessage = form.querySelector('.form-status');
+        const recaptchaField = form.querySelector('.recaptcha-container');
 
         function setStatus(message, isError) {
             if (!statusMessage) return;
@@ -76,15 +79,28 @@ document.addEventListener('DOMContentLoaded', function() {
             statusMessage.style.color = isError ? '#b3261e' : '#0b6b2c';
         }
 
-        joinForm.addEventListener('submit', async function(event) {
-            if (typeof grecaptcha === 'undefined') {
-                return;
+        function getWidgetId() {
+            if (!recaptchaField) return null;
+            const widgetId = recaptchaField.dataset.widgetId;
+            return widgetId ? Number(widgetId) : null;
+        }
+
+        form.addEventListener('submit', async function(event) {
+            if (recaptchaField) {
+                if (typeof grecaptcha === 'undefined') {
+                    event.preventDefault();
+                    setStatus('reCAPTCHA is still loading. Please try again.', true);
+                    return;
+                }
+                const widgetId = getWidgetId();
+                const token = widgetId !== null ? grecaptcha.getResponse(widgetId) : '';
+                if (!token) {
+                    event.preventDefault();
+                    setStatus('Please complete the reCAPTCHA.', true);
+                    return;
+                }
             }
-            if (!grecaptcha.getResponse()) {
-                event.preventDefault();
-                setStatus('Please complete the reCAPTCHA.', true);
-                return;
-            }
+
             event.preventDefault();
             setStatus('');
             if (submitButton) {
@@ -93,18 +109,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
-                const response = await fetch(joinForm.action, {
+                const response = await fetch(form.action, {
                     method: 'POST',
-                    body: new FormData(joinForm),
+                    body: new FormData(form),
                     headers: {
                         'Accept': 'application/json'
                     }
                 });
 
                 if (response.ok) {
-                    joinForm.reset();
-                    if (typeof grecaptcha !== 'undefined') {
-                        grecaptcha.reset();
+                    form.reset();
+                    const widgetId = getWidgetId();
+                    if (typeof grecaptcha !== 'undefined' && widgetId !== null) {
+                        grecaptcha.reset(widgetId);
                     }
                     setStatus('Thanks! Your message was sent successfully.', false);
                 } else {
@@ -115,20 +132,26 @@ document.addEventListener('DOMContentLoaded', function() {
             } finally {
                 if (submitButton) {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Subscribe';
+                    submitButton.textContent = submitLabel;
                 }
             }
         });
     }
 
-    const recaptchaContainer = document.getElementById('recaptcha-container');
-    if (recaptchaContainer) {
+    setupForm('joinForm', 'Subscribe');
+    setupForm('contactForm', 'Send Message');
+
+    const recaptchaContainers = document.querySelectorAll('.recaptcha-container');
+    if (recaptchaContainers.length) {
         window.onRecaptchaLoad = function() {
             const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
             const siteKey = isLocalhost
                 ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
                 : '6LfBrkosAAAAANnUG1DuVIYqNGfOCyyEprRYxT45';
-            grecaptcha.render(recaptchaContainer, { sitekey: siteKey });
+            recaptchaContainers.forEach(container => {
+                const widgetId = grecaptcha.render(container, { sitekey: siteKey });
+                container.dataset.widgetId = widgetId;
+            });
         };
     }
     

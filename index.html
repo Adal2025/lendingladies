@@ -83,7 +83,7 @@
 <section class="hero-secondary-section">
     <div class="hero-secondary-container">
         <div class="hero-secondary-text">
-            <h1>EMPOWERING WOMEN IN FINANCE</h1>
+            <h1>Empowering Women in Finance</h1>
             <p class="hero-secondary-description">
                 Join a community of inspiring women in lending, banking, and commercial real estate.
                 Connect, grow, and thrive through meaningful networking and empowering conversations.
@@ -96,7 +96,9 @@
             <img src="img/networking-event-BP4hZBoG.jpg" alt="Women networking" class="hero-secondary-image">
             <div class="hero-stat-card">
                 <div class="hero-stat-icon">
-                    <span role="img" aria-label="Group icon">👥</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M16 11a3 3 0 1 0-2.999-3A3 3 0 0 0 16 11Zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05A4.69 4.69 0 0 1 18 16.5V19h6v-2.5c0-2.33-4.67-3.5-7-3.5Z"/>
+                    </svg>
                 </div>
                 <div>
                     <p class="hero-stat-title">500+ Attendees</p>
@@ -110,9 +112,8 @@
 
 <section class="mission-section">
     <div class="mission-container">
-        <h2 class="services-title">Our Mission</h2>
         <p class="mission-statement">
-            To motivate, <span class="mission-highlight">support</span>, and uplift women through intentional networking events featuring inspiring speakers,
+            Our mission is to motivate, <span class="mission-highlight">support</span>, and uplift women through intentional networking events featuring inspiring speakers,
             meaningful dialogue, and opportunities for real <span class="mission-highlight">connection</span>.
         </p>
         <div class="mission-cards" style="display: none;">
@@ -224,7 +225,6 @@
         </div>
         <div class="story-content">
             <p class="eyebrow">OUR STORY</p>
-            <h2>LENDING LADIES</h2>
             <p>
                 Lending Ladies was born over a glass of wine and a real conversation between two women navigating the highs and lows of corporate life.
                 Co-founders <span class="highlight">Priscilla Picasso</span> and <span class="highlight">Liz Castillo</span> came together to create something they wished existed.
@@ -635,22 +635,58 @@
     </div>
 </section>
 
-<section id="contact" class="social-media-section">
-
-    <div class="social-container">
-        <img src="img/LOGO---LENDING-LADIES-white.png" alt="Lending Ladies Logo" class="social-main-logo">
-
-        <div class="social-icons">
-            <a href="https://www.instagram.com/pris_picasso/?hl=en" target="_blank"><img src="img/Icons-social---instagram-white.png" alt="Facebook"></a>
-            <a href="https://www.linkedin.com/in/priscilla-picasso-7976128b/" target="_blank"><img src="img/Icons-social---LinkedIn-white.png" alt="LinkedIn"></a>
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <div class="contact-card contact-form-card">
+            <p class="eyebrow">CONTACT US</p>
+            <h2 class="contact-title">Let’s Connect</h2>
+            <p class="contact-subtitle">
+                Tell us how we can help and we’ll get back to you soon.
+            </p>
+            <form id="contactForm" action="https://formspree.io/f/mwvvpvlb" method="POST">
+                <input type="hidden" name="form_type" value="contact">
+                <div class="contact-field">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Your full name" required>
+                </div>
+                <div class="contact-field">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" placeholder="you@email.com" required>
+                </div>
+                <div class="contact-field">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+                </div>
+                <div class="contact-field">
+                    <div id="recaptcha-contact" class="recaptcha-container g-recaptcha"></div>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
         </div>
-
-        <p class="social-tagline">Follow Priscilla Picasso <br> on Social Media
-
-        </p>
+        <div class="contact-card contact-info-card">
+            <img src="img/LOGo-Lending-Ladies-v2-White.png" alt="Lending Ladies" class="contact-logo">
+            <p class="contact-info-title">Stay Connected</p>
+            <p class="contact-info-text">
+                Email us at <a href="mailto:lendingladiestx@gmail.com">lendingladiestx@gmail.com</a>
+            </p>
+            <div class="contact-socials">
+                <a href="https://www.instagram.com/pris_picasso/?hl=en" target="_blank">
+                    <img src="img/Icons-social---instagram-white.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/priscilla-picasso-7976128b/" target="_blank">
+                    <img src="img/Icons-social---LinkedIn-white.png" alt="LinkedIn">
+                </a>
+            </div>
+            <p class="contact-info-footnote">We’ll reply within 1–2 business days.</p>
+            <p class="contact-info-follow">Follow Priscilla Picasso on Social Media</p>
+        </div>
     </div>
-
 </section>
+
+<footer class="site-footer">
+    <p>© 2025 Lending Ladies TX. All rights reserved.</p>
+</footer>
 
 <div id="simpleModal" class="modal">
     <div class="modal-content">
@@ -685,7 +721,7 @@
             </div>
 
             <div class="form-group">
-                <div id="recaptcha-container" class="g-recaptcha"></div>
+                <div id="recaptcha-join" class="recaptcha-container g-recaptcha"></div>
             </div>
 
             <button type="submit" class="btn-subscribe">Subscribe</button>

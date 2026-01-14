@@ -191,7 +191,8 @@ h6 {
 .rsvp-section,
 .sponsors-section,
 .secondary-sponsors-section,
-.social-media-section {
+.social-media-section,
+.contact-section {
     padding: 20px 20px; /* Espaciado base para móvil */
 }
 
@@ -228,7 +229,8 @@ h6 {
     .rsvp-section,
     .sponsors-section,
     .secondary-sponsors-section,
-    .social-media-section {
+    .social-media-section,
+    .contact-section {
         padding: 50px 20px; /* Aumentamos padding para desktop */
     }
 
@@ -278,6 +280,9 @@ h6 {
     font-size: 2.8rem;
     color: #e476ae;
     margin-bottom: 20px;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 700;
+    text-transform: none;
 }
 
 .hero-secondary-description {
@@ -337,34 +342,43 @@ h6 {
     bottom: -25px;
     left: 20px;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    padding: 16px 22px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-family: Arial, sans-serif;
+    gap: 14px;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .hero-stat-icon {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #FFE1F1;
+    background: #F7D6E8;
+    color: #230443;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    box-shadow: 0 10px 20px rgba(35, 4, 67, 0.25);
+}
+
+.hero-stat-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: currentColor;
+    display: block;
 }
 
 .hero-stat-title {
     font-weight: 700;
-    color: #C01B6F;
+    color: #E92D93;
     margin: 0;
 }
 
 .hero-stat-subtitle {
-    color: #777;
+    color: #6b6b6b;
     margin: 0;
     font-size: 0.9rem;
 }
@@ -406,6 +420,7 @@ h6 {
     max-width: 1100px;
     margin: 0 auto 40px;
     text-align: center;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .story-container {
@@ -468,6 +483,7 @@ h6 {
 .city-tabs-title {
     font-size: clamp(2.2rem, 4vw, 3.2rem);
     margin: 10px 0 0;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .city-tabs-controls {
@@ -652,9 +668,6 @@ h6 {
         flex: 1;
     }
 
-    .story-content {
-        text-align: left;
-    }
 }
 
 /* ============================================== */
@@ -779,6 +792,7 @@ h6 {
 .impact-title {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 40px;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .impact-grid {
@@ -857,6 +871,7 @@ h6 {
 .services-title {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 40px;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .services-grid {
@@ -917,6 +932,7 @@ h6 {
     font-size: 2.3rem;
     color: #e476ae;
     margin-bottom: 15px;
+    font-family: 'Golos Text', sans-serif;
 }
 
 .ready-text p {
@@ -1082,7 +1098,7 @@ h6 {
 /* ============================================== */
 /* Base (Móvil) */
 .secondary-sponsors-section { text-align: center; }
-.secondary-sponsors-header { color: #e476ae; font-size: 2rem; font-weight: bold; margin-bottom: 40px; }
+.secondary-sponsors-header { color: #e476ae; font-size: 2rem; font-weight: bold; margin-bottom: 40px; font-family: 'Golos Text', sans-serif; }
 .secondary-sponsors-grid-simple { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .sponsor-logo-box { border: 1px solid #eee; border-radius: 8px; aspect-ratio: 1 / 1; display: flex; justify-content: center; align-items: center; padding: 10px; }
 .sponsor-logo-box img { width: 85%; height: 85%; object-fit: contain; transition: filter 0.3s; }
@@ -1096,24 +1112,186 @@ h6 {
 
 
 /* ============================================== */
-/* ====== 6. SOCIAL MEDIA SECTION ====== */
+/* ====== 6. CONTACT SECTION ====== */
+/* ============================================== */
+.contact-section {
+    background: transparent;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+}
+
+.contact-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    padding: 32px 28px;
+}
+
+.contact-form-card .eyebrow {
+    margin-bottom: 10px;
+}
+
+.contact-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    margin-bottom: 10px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.contact-subtitle {
+    font-family: 'Golos Text', sans-serif;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.contact-field {
+    margin-bottom: 18px;
+}
+
+.contact-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2f2f2f;
+}
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e2d7dd;
+    font-size: 1rem;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.contact-field textarea {
+    resize: vertical;
+}
+
+.contact-form-card .btn-primary {
+    width: 100%;
+    justify-content: center;
+}
+
+.contact-info-card {
+    text-align: center;
+    background: #7A2C4D;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.contact-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 16px;
+}
+
+.contact-info-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.contact-info-text {
+    font-family: 'Golos Text', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.contact-info-text a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.contact-socials img {
+    width: 44px;
+    height: 44px;
+}
+
+.contact-info-footnote {
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.contact-info-follow {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ============================================== */
+/* ====== 7. FOOTER ====== */
+/* ============================================== */
+.site-footer {
+    background: #7A2C4D;
+    color: #f9f6f7;
+    text-align: center;
+    padding: 18px 20px;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 0.95rem;
+}
+
+@media (min-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: stretch;
+    }
+}
+
+/* ============================================== */
+/* ====== 8. SOCIAL MEDIA SECTION ====== */
 /* ============================================== */
 /* Base (Móvil) */
 .social-media-section { text-align: center; }
-.social-container { width: 90%; margin: 0 auto; height: auto; padding: 40px 20px; background-color: #7A2C4D; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; }
-.social-main-logo { max-width: 200px; height: auto; }
-.social-icons { display: flex; gap: 40px; }
-.social-icons img { width: 50px; height: 50px; transition: transform 0.2s; }
+.social-container {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 28px 24px;
+    background-color: #7A2C4D;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.social-main-logo { max-width: 160px; height: auto; }
+.social-icons { display: flex; gap: 20px; }
+.social-icons img { width: 44px; height: 44px; transition: transform 0.2s; }
 .social-icons a:hover img { transform: scale(1.1); }
-.social-tagline { color: #fff; font-size: 2.25rem; font-weight: bold; text-align: center; }
+.social-tagline { color: #fff; font-size: 1.4rem; font-weight: 600; text-align: center; }
 
 /* Desktop y más grandes */
 @media (min-width: 768px) {
-    .social-container { width: 90%; height: 70vh; max-height: 550px; gap: 50px; background-color: #7A2C4D; }
-    .social-main-logo { max-width: 270px; }
-    .social-icons img { width: 80px; height: 80px; }
-    .social-icons { gap: 70px; }
-    .social-tagline { font-size: 4rem; }
+    .social-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px 40px;
+        gap: 30px;
+        text-align: left;
+    }
+    .social-main-logo { max-width: 200px; }
+    .social-icons img { width: 50px; height: 50px; }
+    .social-tagline { font-size: 1.6rem; }
 }
 
 
