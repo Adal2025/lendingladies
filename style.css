@@ -260,7 +260,7 @@ h6 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 80px;
 }
 
 .hero-secondary-text {
@@ -301,8 +301,8 @@ h6 {
 
 .btn-primary,
 .btn-secondary {
-    border-radius: 999px;
-    padding: 14px 24px;
+    border-radius: 10px;
+    padding: 14px 50px;
     font-size: 1rem;
     font-weight: bold;
     border: none;
@@ -333,18 +333,18 @@ h6 {
 
 .hero-secondary-image {
     width: 100%;
-    border-radius: 24px;
+    border-radius: 15px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .hero-stat-card {
     position: absolute;
-    bottom: -25px;
-    left: 20px;
+    bottom: -20px;
+    left: -25px;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-    padding: 16px 22px;
+    padding: 28px 24px;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -354,33 +354,36 @@ h6 {
 .hero-stat-icon {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
-    background: #F7D6E8;
+    border-radius: 12px;
+    background: transparent;
     color: #230443;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    box-shadow: 0 10px 20px rgba(35, 4, 67, 0.25);
+    box-shadow: none;
 }
 
-.hero-stat-icon svg {
-    width: 27px;
-    height: 27px;
+.hero-stat-icon svg,
+.hero-stat-icon img {
+    width: 100%;
+    height: 100%;
     fill: currentColor;
     display: block;
 }
 
 .hero-stat-title {
     font-weight: 700;
-    color: #E92D93;
+    color: #e476ae;
     margin: 0;
+    line-height: 1.2;
 }
 
 .hero-stat-subtitle {
     color: #6b6b6b;
-    margin: 0;
+    margin: 6px 0 0;
     font-size: 0.9rem;
+    line-height: 1.3;
 }
 
 @media (min-width: 992px) {
@@ -429,19 +432,34 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.story-media {
+    display: flex;
+    height: 100%;
 }
 
 .story-media img {
     width: 100%;
-    border-radius: 30px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+    display: block;
 }
 
 .story-content {
     font-family: Arial, sans-serif;
     color: #4a4a4a;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.story-content .eyebrow {
+    margin-top: 0;
 }
 
 .story-content h2 {
@@ -452,7 +470,7 @@ h6 {
 
 .story-content p {
     line-height: 1.7;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 
 .story-content .highlight {
@@ -461,9 +479,11 @@ h6 {
 }
 
 .story-btn {
-    margin-top: 10px;
-    padding: 14px 30px;
+    margin-top: auto;
+    padding: 14px 45px;
     border: none;
+    align-self: flex-start;
+    width: auto;
 }
 
 /* ============================================== */
@@ -511,6 +531,12 @@ h6 {
     background: #FFE1F1;
 }
 
+.city-tab-solid {
+    background: #E92D93;
+    color: #ffffff;
+    border-color: #E92D93;
+}
+
 .city-tabs-media {
     max-width: 1200px;
     margin: 0 auto;
@@ -529,7 +555,7 @@ h6 {
 
 .city-event-card {
     position: absolute;
-    right: 32px;
+    right: 45px;
     bottom: 32px;
     background: #ffffff;
     border-radius: 18px;
@@ -658,9 +684,15 @@ h6 {
 
 @media (min-width: 992px) {
     .story-container {
-        flex-direction: row;
-        align-items: center;
-        gap: 60px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: stretch;
+        column-gap: 60px;
+    }
+
+    .story-media,
+    .story-content {
+        height: 100%;
     }
 
     .story-media,
@@ -827,6 +859,19 @@ h6 {
     background: #fff0f7;
     border-radius: 20px;
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+}
+
+.impact-quote-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
 }
 
 .impact-quote-text {
@@ -846,6 +891,17 @@ h6 {
 @media (min-width: 768px) {
     .impact-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-quote {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .impact-quote-avatar {
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -1242,8 +1298,8 @@ h6 {
 /* ====== 7. FOOTER ====== */
 /* ============================================== */
 .site-footer {
-    background: #7A2C4D;
-    color: #f9f6f7;
+    background: transparent;
+    color: #000;
     text-align: center;
     padding: 18px 20px;
     font-family: 'Golos Text', sans-serif;
