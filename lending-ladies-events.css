@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Golos+Text:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Golos Text', 'Cormorant Garamond', serif;
+    background-color: #f9f6f7;
+    background: linear-gradient(
+        180deg,
+        #f8dbe8 0%,
+        #fdfbfc 20%,
+        #fdfbfc 80%,
+        #f8dbe8 100%
+    );
+    background-attachment: fixed;
+    color: #fbe5f0;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.back-to-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #E92D93;
+    padding: 10px 22px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 15px 25px rgba(233, 45, 147, 0.3);
+    z-index: 10;
+}
+
+.events-page {
+    padding: 120px 24px 140px;
+}
+
+.events-collage-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.events-collage-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.events-eyebrow {
+    letter-spacing: 0.3em;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #7f1e45;
+    margin-bottom: 10px;
+}
+
+.events-collage-header h1 {
+    font-family: 'Golos Text', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: #e476ae;
+}
+
+.events-collage-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    align-items: end;
+    background: rgba(255, 202, 229, 0.08);
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+.collage-item {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.45);
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.2) sepia(0.25) hue-rotate(325deg) saturate(1.2);
+}
+
+.collage-item:nth-child(1) {
+    height: 280px;
+}
+
+.collage-item:nth-child(2) {
+    height: 340px;
+    transform: translateY(18px);
+}
+
+.collage-item:nth-child(3) {
+    height: 380px;
+    transform: translateY(-12px);
+}
+
+.collage-item:nth-child(4) {
+    height: 320px;
+    transform: translateY(10px);
+}
+
+.collage-item:nth-child(5) {
+    height: 300px;
+}
+
+@media (max-width: 980px) {
+    .events-collage-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .events-page {
+        padding: 100px 18px 110px;
+    }
+
+    .events-collage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 30px 20px;
+    }
+
+    .collage-item {
+        transform: none;
+    }
+}
+
+/* ============================================== */
+/* ====== PAST EVENTS SCROLLER ====== */
+/* ============================================== */
+.past-events-section {
+    max-width: 1200px;
+    margin: 90px auto 0;
+    padding: 0 12px 120px;
+}
+
+.past-events-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.past-events-header h2 {
+    font-family: 'Golos Text', sans-serif;
+    color: #e476ae;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 10px 0;
+}
+
+.past-events-subtitle {
+    color: #6b6b6b;
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.past-events-marquee {
+    background: #000000;
+    border-radius: 20px;
+    padding: 22px 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.past-events-track-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: max-content;
+    animation: past-events-scroll 32s linear infinite;
+}
+
+.past-events-track {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: max-content;
+}
+
+.past-events-marquee:hover .past-events-track-wrap,
+.past-events-marquee:focus-within .past-events-track-wrap {
+    animation-play-state: paused;
+}
+
+.past-event-thumb {
+    border: 2px solid #ffffff;
+    background: #111111;
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.past-event-thumb img {
+    display: block;
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter 0.25s ease;
+}
+
+.past-event-thumb:hover img,
+.past-event-thumb:focus-visible img,
+.past-event-thumb.is-active img {
+    filter: none;
+}
+
+.past-event-thumb.is-active {
+    box-shadow: 0 0 18px rgba(228, 118, 174, 0.6);
+    transform: translateY(-4px);
+}
+
+.past-event-details {
+    margin-top: 28px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.past-event-details.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.past-event-details-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+    position: relative;
+}
+
+.past-event-details-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #2b2b2b;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.past-event-details-close:hover {
+    color: #7f1e45;
+}
+
+.past-event-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.past-event-details-title {
+    font-family: 'Golos Text', sans-serif;
+    color: #e476ae;
+    font-size: 1.6rem;
+}
+
+.past-event-details-date {
+    color: #6b6b6b;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+}
+
+.past-event-details-summary {
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.past-event-details-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.past-event-details-gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes past-events-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 720px) {
+    .past-event-thumb img {
+        width: 160px;
+        height: 120px;
+    }
+}

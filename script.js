@@ -208,7 +208,7 @@ const aboutUsContentHTML = `
     });
 
     cardPastEvents.addEventListener('click', function() {
-        window.location.href = 'past-events.html'; 
+        window.location.href = 'lending-ladies-events.html';
     });
 
     cardJoinList.addEventListener('click', function() {
@@ -261,7 +261,7 @@ const aboutUsContentHTML = `
 
     if (btnViewEvents) {
         btnViewEvents.addEventListener('click', function() {
-            window.location.href = 'past-events.html';
+            window.location.href = 'lending-ladies-events.html';
         });
     }
 
@@ -336,13 +336,29 @@ const aboutUsContentHTML = `
     }
 
     const cityTabs = document.querySelectorAll('.city-tab');
-    const cityCards = document.querySelectorAll('.city-event-card');
-    const cityImage = document.querySelector('.city-tabs-image');
+    const cityCards = document.querySelectorAll('.city-ticket-card');
+    const cityPostImage = document.querySelector('.city-post-image');
+    const cityPostTitle = document.querySelector('.city-post-title');
+    const cityPostMonth = document.querySelector('.city-post-month');
+    const cityPostDay = document.querySelector('.city-post-day');
+    const cityPostYear = document.querySelector('.city-post-year');
+    const cityPostAgenda = document.querySelector('.city-post-agenda');
+    const cityPostTimes = document.querySelector('.city-post-times');
+    const cityOrder = Array.from(cityTabs).map(tab => tab.dataset.city);
 
     function setActiveCity(city) {
         const activeTab = document.querySelector(`.city-tab[data-city="${city}"]`);
-        const tabImage = activeTab ? activeTab.dataset.image : '';
-        const tabAlt = activeTab ? activeTab.dataset.alt : '';
+        const postImage = activeTab ? activeTab.dataset.post : '';
+        const postAlt = activeTab ? activeTab.dataset.postAlt : '';
+        const postTitle = activeTab ? activeTab.dataset.title : '';
+        const postMonth = activeTab ? activeTab.dataset.month : '';
+        const postDay = activeTab ? activeTab.dataset.day : '';
+        const postYear = activeTab ? activeTab.dataset.year : '';
+        const postAgenda = activeTab ? activeTab.dataset.agenda : '';
+        const postTimes = activeTab ? activeTab.dataset.times : '';
+        const activeIndex = cityOrder.indexOf(city);
+        const leftIndex = (activeIndex - 1 + cityOrder.length) % cityOrder.length;
+        const rightIndex = (activeIndex + 1) % cityOrder.length;
 
         cityTabs.forEach(tab => {
             const isActive = tab.dataset.city === city;
@@ -351,12 +367,39 @@ const aboutUsContentHTML = `
         });
 
         cityCards.forEach(card => {
-            card.hidden = card.dataset.city !== city;
+            const cardCity = card.dataset.city;
+            card.classList.toggle('is-active', cardCity === cityOrder[activeIndex]);
+            card.classList.toggle('is-left', cardCity === cityOrder[leftIndex]);
+            card.classList.toggle('is-right', cardCity === cityOrder[rightIndex]);
         });
 
-        if (cityImage && tabImage) {
-            cityImage.src = tabImage;
-            cityImage.alt = tabAlt;
+        if (cityPostImage && postImage) {
+            cityPostImage.src = postImage;
+            cityPostImage.alt = postAlt;
+        }
+
+        if (cityPostTitle && postTitle) {
+            cityPostTitle.textContent = postTitle;
+        }
+
+        if (cityPostMonth && postMonth) {
+            cityPostMonth.textContent = postMonth;
+        }
+
+        if (cityPostDay && postDay) {
+            cityPostDay.textContent = postDay;
+        }
+
+        if (cityPostYear && postYear) {
+            cityPostYear.textContent = postYear;
+        }
+
+        if (cityPostAgenda && postAgenda) {
+            cityPostAgenda.innerHTML = postAgenda.split('|').map(item => `<li>${item}</li>`).join('');
+        }
+
+        if (cityPostTimes && postTimes) {
+            cityPostTimes.innerHTML = postTimes.split('|').map(item => `<li>${item}</li>`).join('');
         }
     }
 
@@ -366,6 +409,12 @@ const aboutUsContentHTML = `
                 setActiveCity(tab.dataset.city);
             });
         });
+        cityCards.forEach(card => {
+            card.addEventListener('click', () => {
+                setActiveCity(card.dataset.city);
+            });
+        });
+        setActiveCity(cityTabs[0].dataset.city);
     }
 
 }); // <-- ESTA ES LA ÚNICA LLAVE DE CIERRE QUE DEBE HABER AL FINAL
