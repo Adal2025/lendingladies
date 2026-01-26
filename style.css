@@ -554,7 +554,7 @@ h6 {
 .city-ticket-card {
     position: absolute;
     width: min(520px, 94vw);
-    background: #8e0b63;
+    background: #7A2C4D;
     color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(28, 20, 34, 0.25);
@@ -852,17 +852,23 @@ h6 {
 
 .sponsor-collab-logos {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 70px 60px;
     align-items: center;
 }
 
 .sponsor-collab-logos-primary {
     margin-bottom: 30px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 70px 80px;
+}
+
+.sponsor-collab-logos-primary img {
+    max-width: 620px;
 }
 
 .sponsor-collab-logos-secondary {
-    gap: 60px 50px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 50px 40px;
 }
 
 .sponsor-collab-logos img {
@@ -876,8 +882,15 @@ h6 {
 }
 
 .sponsor-logo-primary {
-    max-width: 320px;
-    height: 115px;
+    width: 100%;
+    max-width: 620px;
+    height: 100px;
+}
+
+.sponsor-collab-logos-primary .sponsor-logo-primary {
+    max-width: 620px;
+    width: 100%;
+    height: 300px;
 }
 
 .sponsor-logo-secondary {
@@ -885,9 +898,9 @@ h6 {
     height: 52px;
 }
 
-.logo-gulf-coast { height: 200px; width: auto; }
-.logo-the-zig { height: 200px; width: auto; }
-.logo-invincible { height: 200px; width: auto; }
+.logo-gulf-coast { height: 360px; width: 100%; }
+.logo-the-zig { height: 360px; width: 100%; }
+.logo-invincible { height: 360px; width: 100%; }
 .logo-flatbay { height: 200px; width: auto; }
 .logo-lincoln-security { height: 120px; width: auto; }
 .logo-adp { height: 75px; width: auto; }
@@ -925,8 +938,14 @@ h6 {
 }
 
 @media (max-width: 900px) {
-    .sponsor-collab-logos {
+    .sponsor-collab-logos-primary {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 50px 40px;
+    }
+
+    .sponsor-collab-logos-secondary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px 24px;
     }
 }
 
@@ -935,7 +954,12 @@ h6 {
         margin-bottom: 32px;
     }
 
-    .sponsor-collab-logos {
+    .sponsor-collab-logos-primary {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .sponsor-collab-logos-secondary {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 28px 20px;
     }
@@ -1565,18 +1589,105 @@ h6 {
 /* ====== 7. FOOTER ====== */
 /* ============================================== */
 .site-footer {
-    background: transparent;
-    color: #000;
-    text-align: center;
-    padding: 18px 20px;
+    background: #7a2c4d;
+    color: #f8e9f1;
+    padding: 50px 24px 30px;
     font-family: 'Golos Text', sans-serif;
-    font-size: 0.95rem;
+}
+
+.site-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.site-footer h3,
+.site-footer h4 {
+    margin-bottom: 14px;
+    font-weight: 700;
+    color: #f8e9f1;
+    font-family: 'Golos Text', 'Cormorant Garamond', serif;
+}
+
+.site-footer p {
+    color: rgba(248, 233, 241, 0.9);
+    line-height: 1.6;
+}
+
+.site-footer-founded {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.site-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.site-footer-links a,
+.site-footer a {
+    color: #f8e9f1;
+    text-decoration: none;
+}
+
+.site-footer-links a:hover,
+.site-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.site-footer-socials {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0 10px;
+}
+
+.site-footer-socials img {
+    width: 34px;
+    height: 34px;
+    display: block;
+}
+
+.site-footer-note {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.site-footer-follow {
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.site-footer-bottom {
+    max-width: 1200px;
+    margin: 26px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(248, 233, 241, 0.3);
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(248, 233, 241, 0.8);
 }
 
 @media (min-width: 900px) {
     .contact-container {
         grid-template-columns: 1.1fr 0.9fr;
         align-items: stretch;
+    }
+}
+
+@media (max-width: 720px) {
+    .site-footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .site-footer-socials {
+        justify-content: center;
     }
 }
 

@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+
     function setupForm(formId, submitLabel) {
         const form = document.getElementById(formId);
         if (!form) return;
@@ -230,6 +231,14 @@ const aboutUsContentHTML = `
         });
     }
 
+    document.querySelectorAll('.open-form-modal').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            openFormModal();
+        });
+    });
+
+
     // Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
     cardSponsor.addEventListener('click', function() {
     // Definimos el nuevo contenido HTML con clases para darle estilo
@@ -258,6 +267,11 @@ const aboutUsContentHTML = `
             openSimpleModal(aboutUsContentHTML);
         });
     }
+
+    if (location.hash === '#formModal') {
+        openFormModal();
+    }
+
 
     if (btnViewEvents) {
         btnViewEvents.addEventListener('click', function() {
