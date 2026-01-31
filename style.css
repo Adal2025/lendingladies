@@ -47,7 +47,7 @@ h6 {
 .site-header {
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background: linear-gradient(180deg, #f8dbe8 0%, #fdfbfc 100%);
     z-index: 100;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -82,7 +82,7 @@ h6 {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background: transparent;
     padding: 20px;
     display: none;
     flex-direction: column;
@@ -105,6 +105,7 @@ h6 {
     color: #333;
     font-weight: 600;
     font-size: 1rem;
+    background: transparent;
 }
 
 .nav-links a:hover {
@@ -829,145 +830,76 @@ h6 {
 }
 
 /* ============================================== */
-/* ====== 1E. SPONSOR COLLAB ====== */
+/* ====== 1E. SPONSORSHIP OPPORTUNITIES ====== */
 /* ============================================== */
-.sponsor-collab-section {
+.sponsor-opps-section {
     background: transparent;
     padding: 80px 20px 90px;
 }
 
-.sponsor-collab-container {
-    max-width: 1320px;
+.sponsor-opps-container {
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
 
-.sponsor-collab-text {
-    font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+.sponsor-opps-text {
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
     line-height: 1.6;
     color: #4a4a4a;
-    max-width: 720px;
-    margin: 0 auto 50px;
+    max-width: 820px;
+    margin: 0 auto 40px;
 }
 
-.sponsor-collab-logos {
+.sponsor-opps-logos {
     display: grid;
-    gap: 70px 60px;
+    gap: 60px;
+}
+
+.sponsor-opps-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 75px;
     align-items: center;
 }
 
-.sponsor-collab-logos-primary {
-    margin-bottom: 30px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 70px 80px;
-}
-
-.sponsor-collab-logos-primary img {
-    max-width: 620px;
-}
-
-.sponsor-collab-logos-secondary {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 50px 40px;
-}
-
-.sponsor-collab-logos img {
-    width: 100%;
-    max-width: 190px;
-    margin: 0 auto;
+.sponsor-opps-row img {
     display: block;
+    max-width: 180px;
+    max-height: 90px;
+    width: 100%;
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.85;
 }
 
-.sponsor-logo-primary {
-    width: 100%;
-    max-width: 620px;
-    height: 100px;
+.sponsor-opps-row-primary img {
+    max-width: 260px;
+    max-height: 140px;
 }
 
-.sponsor-collab-logos-primary .sponsor-logo-primary {
-    max-width: 620px;
-    width: 100%;
-    height: 300px;
-}
-
-.sponsor-logo-secondary {
-    max-width: 160px;
-    height: 52px;
-}
-
-.logo-gulf-coast { height: 360px; width: 100%; }
-.logo-the-zig { height: 360px; width: 100%; }
-.logo-invincible { height: 360px; width: 100%; }
-.logo-flatbay { height: 200px; width: auto; }
-.logo-lincoln-security { height: 120px; width: auto; }
-.logo-adp { height: 75px; width: auto; }
-.logo-advantage { height: 120px; width: auto; }
-.logo-bakertilly { height: 120px; width: auto; }
-.logo-bridgepoint { height: 120px; width: auto; }
-.logo-texas-capital { height: 120px; width: auto; }
-.logo-dealflow { height: 120px; width: auto; }
-.logo-julep { height: 80px; width: auto; }
-
-.sponsor-collab-actions {
-    margin-top: 50px;
+.sponsor-opps-actions {
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
 }
 
-.sponsor-collab-btn {
+.sponsor-opps-actions .btn-primary {
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.sponsor-collab-btn-outline {
+.sponsor-opps-btn-outline {
     background: transparent;
     border: 2px solid #e476ae;
     color: #e476ae;
 }
 
-.sponsor-collab-btn-outline:hover {
+.sponsor-opps-btn-outline:hover {
     background: #e476ae;
     color: #ffffff;
-}
-
-@media (max-width: 900px) {
-    .sponsor-collab-logos-primary {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 50px 40px;
-    }
-
-    .sponsor-collab-logos-secondary {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 32px 24px;
-    }
-}
-
-@media (max-width: 640px) {
-    .sponsor-collab-text {
-        margin-bottom: 32px;
-    }
-
-    .sponsor-collab-logos-primary {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 28px;
-    }
-
-    .sponsor-collab-logos-secondary {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px 20px;
-    }
-
-    .sponsor-collab-actions {
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 @media (min-width: 992px) {
@@ -1468,8 +1400,8 @@ h6 {
 .contact-container {
     max-width: 1100px;
     margin: 0 auto;
-    display: grid;
-    gap: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 .contact-card {
@@ -1477,6 +1409,7 @@ h6 {
     border-radius: 24px;
     box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     padding: 32px 28px;
+    width: min(680px, 100%);
 }
 
 .contact-form-card .eyebrow {
@@ -1950,3 +1883,17 @@ h6 {
 .btn-slider { background-color: #E92D93; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.2s; }
 .btn-slider:hover { background-color: #c82377; }
 /* (Copia y pega aquí cualquier otro estilo de componente que falte) */
+.contact-form-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+}
+
+.contact-form-card form {
+    width: 100%;
+}
+
+.contact-form-card .contact-field {
+    width: 100%;
+}

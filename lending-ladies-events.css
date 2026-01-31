@@ -532,7 +532,7 @@ a {
 
 .past-event-thumb {
     border: 3px solid #ffffff;
-    background: #111111;
+    background: #ffffff;
     border-radius: 8px;
     padding: 6px;
     overflow: hidden;
@@ -545,7 +545,7 @@ a {
     width: 180px;
     height: 180px;
     object-fit: cover;
-    filter: grayscale(1);
+    filter: grayscale(0.6) brightness(1.08);
     transition: filter 0.25s ease;
 }
 
@@ -653,10 +653,10 @@ a {
 .past-event-details-image {
     width: 100%;
     max-height: 520px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 16px;
     display: block;
-    background: #111111;
+    background: #ffffff;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
 }
 

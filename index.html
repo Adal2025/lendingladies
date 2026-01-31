@@ -39,7 +39,7 @@
 <header class="site-header">
     <div class="nav-container">
         <a href="#home" class="nav-logo">
-            <img src="img/LOGo-Lending-Ladies-v2.jpg" alt="Lending Ladies" />
+            <img src="img/LOGo-Lending-Ladies-v2.png" alt="Lending Ladies" />
         </a>
 
         <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
@@ -271,31 +271,134 @@
     </div>
 </section>
 
-<section id="sponsorship-opportunities" class="sponsor-collab-section">
-    <div class="sponsor-collab-container">
+<section id="events" class="city-tabs-section">
+    <div class="city-tabs-header">
+        <h2 class="city-tabs-title">Upcoming &amp; Recent Events</h2>
+    </div>
+    <div class="city-tabs-controls" role="tablist" aria-label="City events">
+        <button class="city-tab active" type="button" role="tab" aria-selected="true" data-city="houston" data-post="img/Skyline-Soiree-Post.jpg" data-post-alt="Skyline Soiree post" data-title="Lending Ladies Skyline Soiree Is Here" data-month="MAY" data-day="17" data-year="2025" data-agenda="Check-in & networking|Welcome remarks|Speaker spotlight|Brunch + connections" data-times="9:00 AM|9:30 AM|10:15 AM|11:00 AM">Houston</button>
+        <button class="city-tab" type="button" role="tab" aria-selected="false" data-city="austin" data-post="img/Skyline-Soiree-Post.jpg" data-post-alt="Skyline Soiree post" data-title="Austin Industry Roundtable" data-month="MAY" data-day="21" data-year="2025" data-agenda="Doors open|Panel kickoff|Audience Q&A|Networking mixer" data-times="6:00 PM|6:30 PM|7:15 PM|8:00 PM">Austin</button>
+        <button class="city-tab" type="button" role="tab" aria-selected="false" data-city="san-antonio" data-post="img/Skyline-Soiree-Post.jpg" data-post-alt="Skyline Soiree post" data-title="San Antonio Power Lunch" data-month="JUN" data-day="06" data-year="2025" data-agenda="Welcome toast|Featured talk|Power lunch|Connection circle" data-times="12:00 PM|12:20 PM|12:45 PM|1:30 PM">San Antonio</button>
+    </div>
+    <div class="city-ticket-stage" aria-live="polite">
+        <div class="city-ticket-stack">
+            <article class="city-ticket-card is-active" data-city="houston">
+                <div class="ticket-header">
+                    <p class="ticket-venue">Houston Networking Brunch</p>
+                    <p class="ticket-address">Downtown Houston</p>
+                </div>
+                <div class="ticket-details">
+                    <div class="ticket-date">
+                        <p class="ticket-day">SUN</p>
+                        <p class="ticket-number">17</p>
+                        <p class="ticket-month">MAY 2025</p>
+                    </div>
+                    <div class="ticket-time">
+                        <p class="ticket-time-label">ARRIVAL TIME</p>
+                        <p class="ticket-time-value">9:00 AM</p>
+                    </div>
+                </div>
+                <div class="ticket-footer">
+                    <p class="ticket-title">Morning of mentorship and community.</p>
+                </div>
+            </article>
+            <article class="city-ticket-card is-right" data-city="austin">
+                <div class="ticket-header">
+                    <p class="ticket-venue">Austin Industry Roundtable</p>
+                    <p class="ticket-address">East Austin</p>
+                </div>
+                <div class="ticket-details">
+                    <div class="ticket-date">
+                        <p class="ticket-day">WED</p>
+                        <p class="ticket-number">21</p>
+                        <p class="ticket-month">MAY 2025</p>
+                    </div>
+                    <div class="ticket-time">
+                        <p class="ticket-time-label">ARRIVAL TIME</p>
+                        <p class="ticket-time-value">6:30 PM</p>
+                    </div>
+                </div>
+                <div class="ticket-footer">
+                    <p class="ticket-title">Panel-driven conversations with leaders.</p>
+                </div>
+            </article>
+            <article class="city-ticket-card is-left" data-city="san-antonio">
+                <div class="ticket-header">
+                    <p class="ticket-venue">San Antonio Power Lunch</p>
+                    <p class="ticket-address">Pearl District</p>
+                </div>
+                <div class="ticket-details">
+                    <div class="ticket-date">
+                        <p class="ticket-day">FRI</p>
+                        <p class="ticket-number">06</p>
+                        <p class="ticket-month">JUN 2025</p>
+                    </div>
+                    <div class="ticket-time">
+                        <p class="ticket-time-label">ARRIVAL TIME</p>
+                        <p class="ticket-time-value">12:00 PM</p>
+                    </div>
+                </div>
+                <div class="ticket-footer">
+                    <p class="ticket-title">An intimate lunch for referrals.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="city-post">
+        <div class="city-post-card">
+            <div class="city-post-poster">
+                <img src="img/Skyline-Soiree-Post.jpg" alt="Skyline Soiree post" class="city-post-image">
+            </div>
+            <div class="city-post-title-wrap">
+                <h3 class="city-post-title">Lending Ladies Skyline Soiree Is Here</h3>
+                <span class="city-post-divider" aria-hidden="true"></span>
+            </div>
+            <div class="city-post-schedule">
+                <div class="city-post-date">
+                    <span class="city-post-month">MAY</span>
+                    <span class="city-post-day">17</span>
+                    <span class="city-post-year">2025</span>
+                </div>
+                <ul class="city-post-agenda">
+                    <li>Check-in &amp; networking</li>
+                    <li>Welcome remarks</li>
+                    <li>Speaker spotlight</li>
+                    <li>Brunch + connections</li>
+                </ul>
+                <ul class="city-post-times">
+                    <li>9:00 AM</li>
+                    <li>9:30 AM</li>
+                    <li>10:15 AM</li>
+                    <li>11:00 AM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sponsorship-opportunities" class="sponsor-opps-section">
+    <div class="sponsor-opps-container">
         <h2 class="services-title">Sponsorship Opportunities</h2>
-        <p class="sponsor-collab-text">
+        <p class="sponsor-opps-text">
             Our sponsors are more than supporters, they are collaborators. Their partnership helps drive continued advancement for women across the finance and lending industries.
         </p>
-        <div class="sponsor-collab-logos sponsor-collab-logos-primary">
-            <img src="img/Gulf-Coast---BN-ok.png" alt="Gulf Coast Business Credit logo" class="sponsor-logo-primary logo-gulf-coast">
-            <img src="img/The-zig---BN-ok.png" alt="The Sig Group logo" class="sponsor-logo-primary logo-the-zig">
-            <img src="img/Invincible--BN.png" alt="Invincible Spaces logo" class="sponsor-logo-primary logo-invincible">
+        <div class="sponsor-opps-logos">
+            <div class="sponsor-opps-row sponsor-opps-row-primary">
+                <img src="img/Gulf-Coast---BN-ok.png" alt="Gulf Coast Business Credit logo">
+                <img src="img/The-zig---BN-ok.png" alt="The Sig Group logo">
+                <img src="img/Invincible--BN.png" alt="Invincible Spaces logo">
+            </div>
+            <div class="sponsor-opps-row sponsor-opps-row-secondary">
+                <img src="img/Flatbay---BN-ok.png" alt="Flatbay logo">
+                <img src="img/Lincoln-Security-Horizontal-BN.png" alt="Lincoln Security Systems LLC Logo">
+                <img src="img/ADP---BN-ok.png" alt="ADP logo">
+                <img src="img/Advantage---BN-ok.png" alt="Advantage logo">
+                <img src="img/Bakertilly---BN.png" alt="Bakertily logo">
+            </div>
         </div>
-        <div class="sponsor-collab-logos sponsor-collab-logos-secondary">
-            <img src="img/Flatbay---BN-ok.png" alt="Flatbay logo" class="sponsor-logo-secondary">
-            <img src="img/Lincoln-Security-Horizontal-BN.png" alt="Lincoln Security Systems LLC Logo" class="sponsor-logo-secondary logo-lincoln-security">            
-            <img src="img/ADP---BN-ok.png" alt="ADP logo" class="sponsor-logo-secondary logo-adp">
-            <img src="img/Advantage---BN-ok.png" alt="Advantage logo" class="sponsor-logo-secondary logo-advantage">
-            <img src="img/Bakertilly---BN.png" alt="Bakertily logo" class="sponsor-logo-secondary logo-bakertilly">
-            <img src="img/Bridgepoint-Consulting---BN-ok.png" alt="Bridgepoint logo" class="sponsor-logo-secondary logo-bridgepoint">
-            <img src="img/Texas-Capital---BN-ok.png" alt="Texas Capital logo" class="sponsor-logo-secondary logo-texas-capital">
-            <img src="img/Dealflow---BN.png" alt="Dealflow Houston Network logo" class="sponsor-logo-secondary logo-dealflow">
-            <img src="img/Julep-BN-ok.png" alt="Julep Logo" class="sponsor-logo-secondary logo-julep">            
-        </div>
-        <div class="sponsor-collab-actions">
-            <a class="btn-primary sponsor-collab-btn" href="#sponsors">Learn more about our sponsors</a>
-            <button class="btn-primary sponsor-collab-btn sponsor-collab-btn-outline" type="button" id="btn-sponsor-opps">
+        <div class="sponsor-opps-actions">
+            <a class="btn-primary" href="#sponsors">Learn more about our sponsors</a>
+            <button class="btn-primary sponsor-opps-btn-outline" type="button" id="btn-sponsor-opps">
                 Become a sponsor
             </button>
         </div>
@@ -634,24 +737,6 @@
                 <button type="submit" class="btn-primary">Send Message</button>
                 <p class="form-status" role="status" aria-live="polite"></p>
             </form>
-        </div>
-        <div class="contact-card contact-info-card">
-            <img src="img/LOGo-Lending-Ladies-v2-White.png" alt="Lending Ladies" class="contact-logo">
-            <p class="contact-info-title">Stay Connected</p>
-            <p class="contact-info-text">
-                Email us at <a href="mailto:lendingladiestx@gmail.com">lendingladiestx@gmail.com</a>
-            </p>
-            <div class="contact-socials">
-                <a href="https://www.instagram.com/pris_picasso/?hl=en" target="_blank">
-                    <img src="img/Icons-social---instagram-white.png" alt="Instagram">
-                </a>
-                <a href="https://www.linkedin.com/in/priscilla-picasso-7976128b/" target="_blank">
-                    <img src="img/Icons-social---LinkedIn-white.png" alt="LinkedIn">
-                </a>
-            </div>
-            <p class="contact-info-footnote">We’ll reply within 1–2 business days.</p>
-            <p class="contact-info-follow">Follow Priscilla Picasso on Social Media</p>
-        </div>
     </div>
 </section>
 
