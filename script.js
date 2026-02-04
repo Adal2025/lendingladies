@@ -1,15 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- LÓGICA DE CLICK PARA VOLTEAR TARJETAS (FLIP CARD) ---
-    document.querySelectorAll('.sponsor-box').forEach(card => {
-        card.addEventListener('click', function(event) {
-            if (event.target.classList.contains('read-story-btn')) {
-                return;
-            }
-            this.classList.toggle('is-flipped');
-        });
-    });
-
     // --- Selectores de Elementos ---
     const cardAboutUs = document.getElementById('card-about-us');
     const cardPastEvents = document.getElementById('card-past-events');
@@ -204,34 +194,39 @@ const aboutUsContentHTML = `
     <p class="about-us-signature">— Priscilla Picasso and Liz Castillo</p>
 `;
 
-    cardAboutUs.addEventListener('click', function() {
-        openSimpleModal(aboutUsContentHTML);
-    });
+    if (cardAboutUs) {
+        cardAboutUs.addEventListener('click', function() {
+            openSimpleModal(aboutUsContentHTML);
+        });
+    }
 
-    cardPastEvents.addEventListener('click', function() {
-        window.location.href = 'lending-ladies-events.html';
-    });
+    if (cardPastEvents) {
+        cardPastEvents.addEventListener('click', function() {
+            window.location.href = 'lending-ladies-events.html';
+        });
+    }
 
-    cardJoinList.addEventListener('click', function() {
-        openFormModal();
-    });
+    if (cardJoinList) {
+        cardJoinList.addEventListener('click', function() {
+            openFormModal();
+        });
+    }
 
     if (btnNextEvent) {
-        btnNextEvent.addEventListener('click', openFormModal);
-    }
-
-    if (btnGetInTouch) {
-        btnGetInTouch.addEventListener('click', openFormModal);
-    }
-
-    if (navJoinUs) {
-        navJoinUs.addEventListener('click', function(event) {
+        btnNextEvent.addEventListener('click', (event) => {
             event.preventDefault();
             openFormModal();
         });
     }
 
-    document.querySelectorAll('.open-form-modal').forEach(link => {
+    if (navJoinUs) {
+        navJoinUs.addEventListener('click', (event) => {
+            event.preventDefault();
+            openFormModal();
+        });
+    }
+
+    document.querySelectorAll('a[href="#formModal"]').forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
             openFormModal();
@@ -240,27 +235,29 @@ const aboutUsContentHTML = `
 
 
     // Caja 4: Abre Modal (Become a Sponsor) - CORREGIDO Y ACTUALIZADO
-    cardSponsor.addEventListener('click', function() {
-    // Definimos el nuevo contenido HTML con clases para darle estilo
-    const sponsorContentHTML = `
-        <span class="close-btn">&times;</span>
-        <h2 class="sponsor-main-title">Become a Sponsor!</h2>
-        
-        <p class="sponsor-body">
-            We offer a range of sponsorship levels from $250 to $500, designed to accommodate individuals, small businesses, and organizations that want to make a meaningful impact.
-        </p>
-        
-        <p class="sponsor-body contact-line">
-            Ready to partner with us? Email us at 
-            <a href="mailto:lendingladiestx@gmail.com?subject=Inquiry About Sponsorship Opportunities" class="sponsor-email-link">
-                lendingladiestx@gmail.com
-            </a>
-        </p>
-    `;
+    if (cardSponsor) {
+        cardSponsor.addEventListener('click', function() {
+            // Definimos el nuevo contenido HTML con clases para darle estilo
+            const sponsorContentHTML = `
+                <span class="close-btn">&times;</span>
+                <h2 class="sponsor-main-title">Become a Sponsor!</h2>
+                
+                <p class="sponsor-body">
+                    We offer a range of sponsorship levels from $250 to $500, designed to accommodate individuals, small businesses, and organizations that want to make a meaningful impact.
+                </p>
+                
+                <p class="sponsor-body contact-line">
+                    Ready to partner with us? Email us at 
+                    <a href="mailto:lendingladiestx@gmail.com?subject=Inquiry About Sponsorship Opportunities" class="sponsor-email-link">
+                        lendingladiestx@gmail.com
+                    </a>
+                </p>
+            `;
 
-    // 1. Inyectamos el nuevo contenido en el modal.
-    openSimpleModal(sponsorContentHTML);
-});
+            // 1. Inyectamos el nuevo contenido en el modal.
+            openSimpleModal(sponsorContentHTML);
+        });
+    }
 
     if (btnLearnMore) {
         btnLearnMore.addEventListener('click', function() {
@@ -276,76 +273,6 @@ const aboutUsContentHTML = `
     if (btnViewEvents) {
         btnViewEvents.addEventListener('click', function() {
             window.location.href = 'lending-ladies-events.html';
-        });
-    }
-
-// --- LÓGICA DE SLIDERS ---
-    let slideIndex = [0, 0, 0];
-    const numSlides = 3;
-
-    function updateDots(sliderId) {
-        const dotsContainer = document.querySelector(`.slider-nav[data-slider="${sliderId}"] .slider-dots`);
-        if (!dotsContainer) return;
-        const dots = dotsContainer.querySelectorAll('.dot');
-        const currentIndex = slideIndex[sliderId - 1];
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-    }
-
-    function goToSlide(sliderId, slideNumber) {
-        const sliderImages = document.querySelector(`#slider-${sliderId} .slider-images`);
-        if (!sliderImages) return;
-        slideIndex[sliderId - 1] = slideNumber;
-        const offset = -slideNumber * (100 / numSlides);
-        sliderImages.style.transform = `translateX(${offset}%)`;
-        updateDots(sliderId);
-    }
-
-    document.querySelectorAll('.slider-nav .nav-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const sliderId = parseInt(this.parentElement.dataset.slider);
-            const direction = this.classList.contains('next') ? 1 : -1;
-            let newIndex = (slideIndex[sliderId - 1] + direction + numSlides) % numSlides;
-            goToSlide(sliderId, newIndex);
-        });
-    });
-
-    document.querySelectorAll('.slider-dots .dot').forEach(dot => {
-        dot.addEventListener('click', function() {
-            const sliderId = parseInt(this.closest('.slider-nav').dataset.slider);
-            const slideToGo = parseInt(this.dataset.slideTo);
-            goToSlide(sliderId, slideToGo);
-        });
-    });
-
-    // Inicializar los puntos al cargar la página
-    for (let i = 1; i <= 3; i++) {
-        if(document.querySelector(`.slider-nav[data-slider="${i}"]`)){
-             updateDots(i);
-        }
-    }
-
-    // --- LÓGICA PARA EL LIGHTBOX DE LA SECCIÓN RSVP ---
-    // (Ahora está dentro del addEventListener principal y correcto)
-    const rsvpImage = document.querySelector('.event-image-clickable');
-    const rsvpLightbox = document.getElementById('rsvp-lightbox');
-    const rsvpLightboxImg = document.getElementById('rsvp-lightbox-img');
-
-    if (rsvpImage && rsvpLightbox && rsvpLightboxImg) {
-        rsvpImage.addEventListener('click', () => {
-            rsvpLightboxImg.src = rsvpImage.src;
-            rsvpLightbox.classList.add('active');
-        });
-
-        rsvpLightbox.querySelector('.close-btn').addEventListener('click', () => {
-            rsvpLightbox.classList.remove('active');
-        });
-
-        rsvpLightbox.addEventListener('click', (event) => {
-            if (event.target === rsvpLightbox) {
-                rsvpLightbox.classList.remove('active');
-            }
         });
     }
 
@@ -431,9 +358,10 @@ const aboutUsContentHTML = `
         setActiveCity(cityTabs[0].dataset.city);
     }
 
-}); // <-- ESTA ES LA ÚNICA LLAVE DE CIERRE QUE DEBE HABER AL FINAL
     if (btnMeetFounders) {
         btnMeetFounders.addEventListener('click', function() {
             openSimpleModal(aboutUsContentHTML);
         });
     }
+
+});

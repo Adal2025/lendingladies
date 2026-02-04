@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lending Ladies Events | Lending Ladies TX</title>
     <link rel="stylesheet" href="lending-ladies-events.css">
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 </head>
 <body>
     <a href="index.html" class="back-to-home">&#10094; HOME</a>
@@ -223,10 +224,10 @@
             <div class="events-footer-col">
                 <h4>Quick Links</h4>
                 <ul class="events-footer-links">
-                    <li><a href="index.html#hero-secondary">Home</a></li>
+                    <li><a href="index.html#hero">Home</a></li>
                     <li><a href="index.html#sponsorship-opportunities">Sponsors</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="index.html#formModal">Join Us</a></li>
+                    <li><a href="#formModal">Join Us</a></li>
                 </ul>
             </div>
             <div class="events-footer-col">
@@ -249,6 +250,42 @@
         </div>
     </footer>
 
+    <div id="formModal" class="modal">
+        <div class="modal-content form-modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="form-main-title">JOIN OUR EMAIL LIST</h2>
+
+            <form id="joinForm" action="https://formspree.io/f/mwvvpvlb" method="POST">
+                <div class="form-group">
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tel">Telephone: (Optional)</label>
+                    <input type="tel" id="tel" name="telephone" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <div id="recaptcha-join" class="recaptcha-container g-recaptcha"></div>
+                </div>
+
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const thumbs = document.querySelectorAll('.past-event-thumb');
@@ -267,6 +304,120 @@
             let galleryItems = [];
             let galleryIndex = 0;
             let galleryAltBase = 'Past event photo';
+
+            const formModal = document.getElementById('formModal');
+            const closeButtons = document.querySelectorAll('.close-btn');
+            const joinLinks = document.querySelectorAll('a[href="#formModal"]');
+            const joinForm = document.getElementById('joinForm');
+            const recaptchaContainer = document.querySelector('.recaptcha-container');
+
+            function openFormModal() {
+                if (formModal) {
+                    formModal.style.display = 'flex';
+                }
+            }
+
+            function closeModal() {
+                if (formModal) {
+                    formModal.style.display = 'none';
+                }
+            }
+
+            joinLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    openFormModal();
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', closeModal);
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === formModal) {
+                    closeModal();
+                }
+            });
+
+            if (location.hash === '#formModal') {
+                openFormModal();
+            }
+
+            if (recaptchaContainer) {
+                window.onRecaptchaLoad = function() {
+                    const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+                    const siteKey = isLocalhost
+                        ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+                        : '6LfBrkosAAAAANnUG1DuVIYqNGfOCyyEprRYxT45';
+                    const widgetId = grecaptcha.render(recaptchaContainer, { sitekey: siteKey });
+                    recaptchaContainer.dataset.widgetId = widgetId;
+                };
+            }
+
+            if (joinForm) {
+                joinForm.addEventListener('submit', async function(event) {
+                    if (recaptchaContainer) {
+                        if (typeof grecaptcha === 'undefined') {
+                            event.preventDefault();
+                            return;
+                        }
+                        const widgetId = recaptchaContainer.dataset.widgetId
+                            ? Number(recaptchaContainer.dataset.widgetId)
+                            : null;
+                        const token = widgetId !== null ? grecaptcha.getResponse(widgetId) : '';
+                        if (!token) {
+                            event.preventDefault();
+                            return;
+                        }
+                    }
+
+                    event.preventDefault();
+
+                    const submitButton = joinForm.querySelector('button[type="submit"]');
+                    const statusMessage = joinForm.querySelector('.form-status');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'Sending...';
+                    }
+                    if (statusMessage) statusMessage.textContent = '';
+
+                    try {
+                        const response = await fetch(joinForm.action, {
+                            method: 'POST',
+                            body: new FormData(joinForm),
+                            headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (response.ok) {
+                            joinForm.reset();
+                            const widgetId = recaptchaContainer && recaptchaContainer.dataset.widgetId
+                                ? Number(recaptchaContainer.dataset.widgetId)
+                                : null;
+                            if (typeof grecaptcha !== 'undefined' && widgetId !== null) {
+                                grecaptcha.reset(widgetId);
+                            }
+                            if (statusMessage) {
+                                statusMessage.textContent = 'Thanks! Your message was sent successfully.';
+                                statusMessage.style.color = '#0b6b2c';
+                            }
+                        } else if (statusMessage) {
+                            statusMessage.textContent = 'Something went wrong. Please try again.';
+                            statusMessage.style.color = '#b3261e';
+                        }
+                    } catch (error) {
+                        if (statusMessage) {
+                            statusMessage.textContent = 'Unable to send right now. Please try again later.';
+                            statusMessage.style.color = '#b3261e';
+                        }
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Subscribe';
+                        }
+                    }
+                });
+            }
 
             function updateDetails(button) {
                 const title = button.dataset.title || '';
