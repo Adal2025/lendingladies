@@ -8,7 +8,29 @@
     <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 </head>
 <body>
-    <a href="index.html" class="back-to-home">&#10094; HOME</a>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="img/LOGo-Lending-Ladies-v2.png" alt="Lending Ladies" />
+            </a>
+
+            <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="lending-ladies-events.html">Events</a>
+                    <a href="index.html#sponsorship-opportunities">Sponsors</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+                <a href="#formModal" class="nav-cta">Join Us</a>
+            </div>
+        </div>
+    </header>
 
     <main class="events-page">
         <section class="events-collage-section">
@@ -288,6 +310,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
             const thumbs = document.querySelectorAll('.past-event-thumb');
             const details = document.getElementById('past-event-details');
             if (!thumbs.length || !details) return;
@@ -310,6 +334,22 @@
             const joinLinks = document.querySelectorAll('a[href="#formModal"]');
             const joinForm = document.getElementById('joinForm');
             const recaptchaContainer = document.querySelector('.recaptcha-container');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isOpen = navMenu.classList.toggle('open');
+                    navToggle.classList.toggle('open', isOpen);
+                    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('open');
+                        navToggle.classList.remove('open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
 
             function openFormModal() {
                 if (formModal) {

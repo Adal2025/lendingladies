@@ -34,9 +34,6 @@ h6{
 }
 
 
-
-
-
 /* ============================================== */
 /* ====== CABECERA Y NAVEGACIÓN PRINCIPAL ======= */
 /* ============================================== */
@@ -199,7 +196,7 @@ h6{
 }
 
 /* ============================================== */
-/* ====== 1B. HERO SECUNDARIO ====== */
+/* ====== Hero Section ====== */
 /* ============================================== */
 .hero-section{
     background: transparent;
@@ -266,7 +263,6 @@ h6{
     color: #fff;
     box-shadow: 0 15px 25px rgba(201, 27, 111, 0.25);
 }
-
 
 
 .btn-primary:hover,
@@ -359,7 +355,336 @@ h6{
 }
 
 /* ============================================== */
-/* ====== 1C. OUR STORY ====== */
+/* ====== Mission Section ====== */
+/* ============================================== */
+.mission-section{
+    padding: 90px 20px;
+}
+
+.mission-container{
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-statement{
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.35;
+    color: #2f2f2f;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.mission-highlight{
+    color: #E92D93;
+    font-style: italic;
+}
+
+
+.mission-cards{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.mission-card{
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    color: #2f2f2f;
+}
+
+.mission-icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #fff0f7;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-icon svg{
+    width: 36px;
+    height: 36px;
+    stroke: #e476ae;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mission-card h3{
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #e476ae;
+}
+
+.mission-card p{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+@media (min-width: 992px){
+    .mission-cards{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+/* ============================================== */
+/* ====== Challenges we Face Section ====== */
+/* ============================================== */
+.challenges-wf-section{
+    padding: 90px 20px;
+}
+
+.ready-card{
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff0f7;
+    border-radius: 32px;
+    padding: 50px 40px;
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
+}
+
+.ready-header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.ready-text h2{
+    font-size: 2.3rem;
+    color: #e476ae;
+    margin-bottom: 15px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.ready-text p{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #4d4d4d;
+}
+
+.ready-link{
+    align-self: flex-start;
+    font-weight: 600;
+    text-decoration: none;
+    color: #575b63;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color 0.2s ease;
+}
+
+.ready-link:hover{
+    border-color: #575b63;
+}
+
+.ready-stats{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.ready-stat{
+    text-align: center;
+}
+
+.stat-number{
+    display: block;
+    font-size: 2.5rem;
+    color: #E92D93;
+    margin-bottom: 6px;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 700;
+}
+
+.stat-label{
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: #6b6b6b;
+}
+
+@media (min-width: 768px){
+    .ready-header{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ready-link{
+        align-self: center;
+    }
+
+    .ready-stats{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* ============================================== */
+/* ====== What We do Section ====== */
+/* ============================================== */
+.what-we-do-section{
+    padding: 80px 20px 100px;
+}
+
+.services-container{
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-title{
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 40px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.services-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.service-card{
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    text-align: left;
+}
+
+.service-title{
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.service-text{
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px){
+    .services-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================== */
+/* ====== Impact in Numbers Section ====== */
+/* ============================================== */
+.impact-in-numbers-section{
+    padding: 80px 20px;
+}
+
+.impact-container{
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.impact-title{
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 40px;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.impact-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.impact-card{
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.impact-number{
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #e476ae;
+    margin-bottom: 8px;
+}
+
+.impact-label{
+    font-size: 1rem;
+    color: #4a4a4a;
+    margin: 0;
+}
+
+.impact-quote{
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: #fff0f7;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+}
+
+.impact-quote-avatar{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+}
+
+.impact-quote-text{
+    font-size: 1.2rem;
+    color: #2f2f2f;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.impact-quote-author{
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: #6b6b6b;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px){
+    .impact-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-quote{
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .impact-quote-avatar{
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 992px){
+    .impact-grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================== */
+/* ====== Story Section ====== */
 /* ============================================== */
 .story-section{
     background-color: transparent;
@@ -434,7 +759,7 @@ h6{
 }
 
 /* ============================================== */
-/* ====== 1D. CITY TABS ====== */
+/* ====== Upcoming & Recent Events ====== */
 /* ============================================== */
 .upcoming-events-section{
     background: transparent;
@@ -776,7 +1101,7 @@ h6{
 }
 
 /* ============================================== */
-/* ====== 1E. SPONSORSHIP OPPORTUNITIES ====== */
+/* ====== Sponsor Opps Section ====== */
 /* ============================================== */
 .sponsor-opps-section{
     background: transparent;
@@ -869,360 +1194,7 @@ h6{
 }
 
 /* ============================================== */
-/* ====== 1D. OUR MISSION ====== */
-/* ============================================== */
-.mission-section{
-    padding: 90px 20px;
-}
-
-.mission-container{
-    max-width: 960px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.mission-statement{
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
-    line-height: 1.35;
-    color: #2f2f2f;
-    letter-spacing: -0.01em;
-    font-weight: 400;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.mission-highlight{
-    color: #E92D93;
-    font-style: italic;
-}
-
-
-
-
-
-.mission-cards{
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.mission-card{
-    background: #fff;
-    border-radius: 20px;
-    padding: 24px 20px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-    color: #2f2f2f;
-}
-
-.mission-icon{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #fff0f7;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mission-icon svg{
-    width: 36px;
-    height: 36px;
-    stroke: #e476ae;
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.mission-card h3{
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    color: #e476ae;
-}
-
-.mission-card p{
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #4a4a4a;
-}
-
-@media (min-width: 992px){
-    .mission-cards{
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-}
-
-/* ============================================== */
-/* ====== 1E. IMPACT SNAPSHOT ====== */
-/* ============================================== */
-.impact-in-numbers-section{
-    padding: 80px 20px;
-}
-
-.impact-container{
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.impact-title{
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 40px;
-    font-family: 'Golos Text', sans-serif;
-}
-
-.impact-grid{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.impact-card{
-    background: #fff;
-    border-radius: 20px;
-    padding: 24px 20px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-}
-
-.impact-number{
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #e476ae;
-    margin-bottom: 8px;
-}
-
-.impact-label{
-    font-size: 1rem;
-    color: #4a4a4a;
-    margin: 0;
-}
-
-.impact-quote{
-    margin-top: 40px;
-    padding: 24px 28px;
-    background: #fff0f7;
-    border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
-    text-align: center;
-}
-
-.impact-quote-avatar{
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
-}
-
-.impact-quote-text{
-    font-size: 1.2rem;
-    color: #2f2f2f;
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
-.impact-quote-author{
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    color: #6b6b6b;
-    text-transform: uppercase;
-}
-
-@media (min-width: 768px){
-    .impact-grid{
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .impact-quote{
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-    }
-
-    .impact-quote-avatar{
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media (min-width: 992px){
-    .impact-grid{
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* ============================================== */
-/* ====== 1F. WHAT WE DO ====== */
-/* ============================================== */
-.what-we-do-section{
-    padding: 80px 20px 100px;
-}
-
-.services-container{
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.services-title{
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 40px;
-    font-family: 'Golos Text', sans-serif;
-}
-
-.services-grid{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
-
-.service-card{
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 28px 24px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-    text-align: left;
-}
-
-.service-title{
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    font-family: 'Golos Text', sans-serif;
-}
-
-.service-text{
-    font-size: 1rem;
-    color: #4a4a4a;
-    line-height: 1.6;
-}
-
-@media (min-width: 768px){
-    .services-grid{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* ============================================== */
-/* ====== READY TO JOIN CTA ====== */
-/* ============================================== */
-.challenges-wf-section{
-    padding: 90px 20px;
-}
-
-.ready-card{
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #fff0f7;
-    border-radius: 32px;
-    padding: 50px 40px;
-    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
-}
-
-.ready-header{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.ready-text h2{
-    font-size: 2.3rem;
-    color: #e476ae;
-    margin-bottom: 15px;
-    font-family: 'Golos Text', sans-serif;
-}
-
-.ready-text p{
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #4d4d4d;
-}
-
-.ready-link{
-    align-self: flex-start;
-    font-weight: 600;
-    text-decoration: none;
-    color: #575b63;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 4px;
-    transition: border-color 0.2s ease;
-}
-
-.ready-link:hover{
-    border-color: #575b63;
-}
-
-.ready-stats{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.ready-stat{
-    text-align: center;
-}
-
-.stat-number{
-    display: block;
-    font-size: 2.5rem;
-    color: #E92D93;
-    margin-bottom: 6px;
-    font-family: 'Golos Text', sans-serif;
-    font-weight: 700;
-}
-
-.stat-label{
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    color: #6b6b6b;
-}
-
-@media (min-width: 768px){
-    .ready-header{
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .ready-link{
-        align-self: center;
-    }
-
-    .ready-stats{
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-}
-/* ============================================== */
-/* ====== 2. CARD FEATURE SECTION ====== */
-/* ============================================== */
-/* Base (Móvil) */
-
-
-
-
-
-
-
-
-
-
-/* Tablet y más grandes */
-
-/* Laptop y más grandes */
-
-
-
-/* ============================================== */
-/* ====== 3. RSVP SECTION ====== */
-/* ============================================== */
-/* ====== 6. CONTACT SECTION ====== */
+/* ====== 6. Contact Section ====== */
 /* ============================================== */
 .contact-section{
     background: transparent;
@@ -1290,26 +1262,8 @@ h6{
     justify-content: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ============================================== */
-/* ====== 7. FOOTER ====== */
+/* ====== Site Footer ====== */
 /* ============================================== */
 .site-footer{
     background: #7a2c4d;
@@ -1414,21 +1368,6 @@ h6{
     }
 }
 
-/* ============================================== */
-/* ====== 8. SOCIAL MEDIA SECTION ====== */
-/* ============================================== */
-/* Base (Móvil) */
-
-
-
-
-
-
-
-
-/* Desktop y más grandes */
-
-
 
 /* ============================================== */
 /* ====== ESTILOS DE MODALES Y COMPONENTES ====== */
@@ -1472,94 +1411,9 @@ h6{
 .close-btn{ color: #000; float: right; font-size: 35px; font-weight: bold; cursor: pointer; }
 .close-btn:hover, .close-btn:focus{ color: #333; }
 
-/* ============================================== */
-/* ====== ESTILOS DEL MODAL "ABOUT US" ====== */
-/* ============================================== */
-
-/* Título Principal ("About Us!") */
-.about-us-main-title{
-    color: #e476ae;
-    font-size: 2.8rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 35px;
-    padding-top: 10px;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-/* Contenedor para cada sección de texto */
-.about-us-section{
-    margin-bottom: 25px;
-}
-
-/* Subtítulos (Born from Experience, etc.) */
-.about-us-subtitle{
-    color: #e476ae;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-/* Párrafos de texto */
-.about-us-body{
-    color: #333333;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: justify;
-    margin: 0;
-}
-
-/* Firma final */
-.about-us-signature{
-    color: #e476ae;
-    font-size: 1.4rem;
-    text-align: right; /* Alineado a la derecha */
-    margin-top: 40px;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-}
 
 /* ============================================== */
-/* ====== ESTILOS DEL MODAL "BECOME A SPONSOR" ====== */
-/* ============================================== */
-
-/* Título Principal */
-.sponsor-main-title{
-    color: #e476ae;
-    font-size: 2.8rem; /* Mismo tamaño que "About Us!" */
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 25px;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-/* Párrafos de texto */
-.sponsor-body{
-    color: #333333;
-    font-size: 1.1rem; /* Mismo tamaño que el cuerpo de "About Us" */
-    line-height: 1.6;
-    text-align: center; /* Texto centrado como en la imagen */
-    margin: 0;
-}
-
-/* Espacio extra para la línea de contacto */
-.sponsor-body.contact-line{
-    margin-top: 30px;
-}
-
-/* Enlace del correo electrónico */
-.sponsor-email-link{
-    color: #E92D93;
-    font-weight: bold;
-    text-decoration: none; /* Quitamos el subrayado por defecto */
-}
-.sponsor-email-link:hover{
-    text-decoration: underline; /* Subrayado al pasar el mouse */
-}
-
-/* ============================================== */
-/* ====== ESTILOS DEL MODAL DEL FORMULARIO ====== */
+/* ====== FormModal - Join Our Email List ====== */
 /* ============================================== */
 
 /* Título del Formulario */
