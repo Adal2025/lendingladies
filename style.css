@@ -365,7 +365,7 @@ h6{
     width: 100%;
     max-width: none;
     margin: 0;
-    min-height: clamp(420px, 60vh, 680px);
+    min-height: clamp(540px, 76vh, 900px);
     border-radius: 0;
     overflow: hidden;
     position: relative;
