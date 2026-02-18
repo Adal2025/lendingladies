@@ -580,17 +580,34 @@ h6{
 }
 
 .ready-link{
-    align-self: flex-start;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid #e476ae;
+    background: #e476ae;
+    color: #ffffff;
     font-weight: 600;
+    font-size: 0.92rem;
     text-decoration: none;
-    color: #575b63;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 4px;
-    transition: border-color 0.2s ease;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 24px rgba(228, 118, 174, 0.28);
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ready-link:hover{
-    border-color: #575b63;
+    background: #cf5f9b;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(207, 95, 155, 0.35);
+}
+
+.ready-link:focus-visible{
+    outline: 3px solid rgba(228, 118, 174, 0.35);
+    outline-offset: 3px;
 }
 
 .ready-stats{
@@ -621,12 +638,14 @@ h6{
 @media (min-width: 768px){
     .ready-header{
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
     }
 
     .ready-link{
-        align-self: center;
+        align-self: flex-start;
+        margin-top: -18px;
+        margin-right: -10px;
     }
 
     .ready-stats{
@@ -1229,7 +1248,7 @@ h6{
 
 .sponsor-opps-logos{
     display: grid;
-    gap: 60px;
+    gap: 34px;
 }
 
 .sponsor-opps-row{
@@ -1248,11 +1267,6 @@ h6{
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.85;
-}
-
-.sponsor-opps-row-primary img{
-    max-width: 260px;
-    max-height: 140px;
 }
 
 .sponsor-opps-actions{
