@@ -33,7 +33,7 @@ a {
 .site-header {
     position: sticky;
     top: 0;
-    background: linear-gradient(180deg, #f8dbe8 0%, #fdfbfc 100%);
+    background: #ffffff;
     z-index: 100;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -65,7 +65,7 @@ a {
     top: 100%;
     left: 0;
     right: 0;
-    background: linear-gradient(180deg, #f8dbe8 0%, #fdfbfc 100%);
+    background: #ffffff;
     padding: 20px;
     display: none;
     flex-direction: column;
