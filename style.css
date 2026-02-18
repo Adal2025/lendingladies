@@ -393,38 +393,49 @@ h6{
     position: relative;
     z-index: 1;
     min-height: inherit;
-    padding: 40px 24px;
-    max-width: 840px;
+    padding: 48px 24px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
     color: #fff;
 }
 
 .hero-section-copy-content h1{
+    margin: 0 auto;
+    text-align: center;
     color: #fff;
-    font-size: clamp(1.5rem, 3vw, 2.7rem);
-    line-height: 1.15;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.25;
     font-family: 'Golos Text', sans-serif;
+    font-weight: 700;
+    letter-spacing: normal;
     text-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
 }
 
+.hero-section-copy-content h1 span{
+    display: block;
+}
+
+.hero-section-copy-cta{
+    max-width: 530px;
+    margin-top: auto;
+    text-align: left;
+}
+
 .hero-section-copy-content p{
-    margin-top: 16px;
-    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    margin-top: 0;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     line-height: 1.45;
     font-family: 'Golos Text', sans-serif;
     font-weight: 400;
-    max-width: 720px;
     color: rgba(255, 255, 255, 0.96);
     text-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
 }
 
-.hero-section-copy-content .btn-primary{
-    margin-top: 30px;
+.hero-section-copy-cta .btn-primary{
+    margin-top: 24px;
 }
 
 @media (min-width: 992px){
@@ -433,7 +444,15 @@ h6{
     }
 
     .hero-section-copy-content{
-        padding: 64px 40px;
+        padding: 84px 56px 64px;
+    }
+
+    .hero-section-copy-content p{
+        font-size: 1.14rem;
+    }
+
+    .hero-section-copy-cta{
+        margin-left: 0;
     }
 }
 
